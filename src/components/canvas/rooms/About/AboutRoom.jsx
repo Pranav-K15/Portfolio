@@ -198,8 +198,6 @@ const AboutRoom = ({ showRoom, onReady, isExiting, isWarmup }) => {
     // Handle scroll wheel (desktop)
     useEffect(() => {
         const handleWheel = (e) => {
-            // TEMP DEBUG - remove after diagnosing scroll issue
-            console.log('[DEBUG wheel]', e.deltaY, 'overlayBlocked:', !!overlayRef.current, 'isExiting:', isExiting, 'isTeleporting:', isTeleporting);
             if (overlayRef.current) return; // BLOCK SCROLL IF OVERLAY IS OPEN
             scrollVelocity.current += e.deltaY * 0.002;
         };

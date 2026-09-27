@@ -24,7 +24,7 @@ html {
 
 body {
     font-family: $font-primary;
-    background-color: #fafafa;
+    background-color: #faf3e6;
     color: $color-black;
     overflow: hidden; // No scroll - 3D handles it
     @include smooth-text;
@@ -93,7 +93,7 @@ body {
         background: rgba(255, 255, 255, 0.9);
         padding: 0.5rem 1rem;
         border-radius: 20px;
-        border: 1px solid #eee;
+        border: 1px solid #f0e6d2;
     }
 
     @include mobile {

@@ -79,7 +79,7 @@ const Experience = ({ isLoaded, onSceneReady, performanceTier }) => {
                 castShadow={!isLowTier}
                 shadow-mapSize={[1024, 1024]}
             /> */}
-            {/* <directionalLight position={[-5, 8, -10]} intensity={0.4} color="#ffffff" /> */}
+            {/* <directionalLight position={[-5, 8, -10]} intensity={0.4} color="#faf3e6" /> */}
 
             {/* === EMPTY CORRIDOR (provides context during entrance) === */}
             {!hasEntered && (

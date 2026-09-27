@@ -72,19 +72,19 @@ const LoopDoors = ({
             {/* Door Frame */}
             <mesh position={[0, doorHeight / 2 + 0.15, 0]}>
                 <boxGeometry args={[doorWidth * 2 + 0.3, 0.15, 0.15]} />
-                <meshBasicMaterial color="#2a2a2a" />
+                <meshBasicMaterial color="#2e2318" />
             </mesh>
 
             {/* Left Door Frame */}
             <mesh position={[-doorWidth - 0.08, 0, 0]}>
                 <boxGeometry args={[0.12, doorHeight + 0.3, 0.15]} />
-                <meshBasicMaterial color="#2a2a2a" />
+                <meshBasicMaterial color="#2e2318" />
             </mesh>
 
             {/* Right Door Frame */}
             <mesh position={[doorWidth + 0.08, 0, 0]}>
                 <boxGeometry args={[0.12, doorHeight + 0.3, 0.15]} />
-                <meshBasicMaterial color="#2a2a2a" />
+                <meshBasicMaterial color="#2e2318" />
             </mesh>
 
             {/* Left Door - pivots from left edge */}
@@ -110,7 +110,7 @@ const LoopDoors = ({
                 {/* Handle */}
                 <mesh position={[doorWidth - 0.15, 0, 0.12]}>
                     <sphereGeometry args={[0.05, 12, 12]} />
-                    <meshBasicMaterial color="#333" metalness={0.6} roughness={0.3} />
+                    <meshBasicMaterial color="#3d3226" metalness={0.6} roughness={0.3} />
                 </mesh>
             </group>
 
@@ -137,7 +137,7 @@ const LoopDoors = ({
                 {/* Handle */}
                 <mesh position={[-doorWidth + 0.15, 0, 0.12]}>
                     <sphereGeometry args={[0.05, 12, 12]} />
-                    <meshBasicMaterial color="#333" metalness={0.6} roughness={0.3} />
+                    <meshBasicMaterial color="#3d3226" metalness={0.6} roughness={0.3} />
                 </mesh>
             </group>
 

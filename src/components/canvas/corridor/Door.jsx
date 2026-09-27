@@ -169,20 +169,20 @@ const Door = ({
                 {/* Label border (back layer) */}
                 <mesh position={[0, 0, -0.02]}>
                     <planeGeometry args={[label.length * 0.08 + 0.35, 0.3]} />
-                    <meshBasicMaterial color="#1a1a1a" />
+                    <meshBasicMaterial color="#2b2016" />
                 </mesh>
 
                 {/* Label background (middle layer) */}
                 <mesh position={[0, 0, -0.01]}>
                     <planeGeometry args={[label.length * 0.08 + 0.3, 0.25]} />
-                    <meshBasicMaterial color="#e0e0e0" />
+                    <meshBasicMaterial color="#f0e6d2" />
                 </mesh>
 
                 {/* Label text (front layer) */}
                 <Text
                     position={[0, 0, 0.01]}
                     fontSize={0.12}
-                    color="#1a1a1a"
+                    color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
                     renderOrder={3}
@@ -208,7 +208,7 @@ const Door = ({
             <mesh position={[0, -0.2, -0.05]} rotation={[0, Math.PI, 0]}>
                 <planeGeometry args={[doorWidth + 0.3, doorHeight + 0.3]} />
                 <meshBasicMaterial
-                    color="#e0e0e0"
+                    color="#f0e6d2"
                     transparent={true}
                     opacity={glowIntensity} // Dynamic opacity based on proximity
                     depthWrite={false}
@@ -237,15 +237,15 @@ const Door = ({
             <group>
                 <mesh position={[0, doorHeight / 2 + frameThickness / 2, 0]}>
                     <boxGeometry args={[doorWidth + frameThickness * 2, frameThickness, 0.12]} />
-                    <meshBasicMaterial color="#2a2a2a" />
+                    <meshBasicMaterial color="#2e2318" />
                 </mesh>
                 <mesh position={[-(doorWidth / 2 + frameThickness / 2), 0, 0]}>
                     <boxGeometry args={[frameThickness, doorHeight, 0.12]} />
-                    <meshBasicMaterial color="#2a2a2a" />
+                    <meshBasicMaterial color="#2e2318" />
                 </mesh>
                 <mesh position={[doorWidth / 2 + frameThickness / 2, 0, 0]}>
                     <boxGeometry args={[frameThickness, doorHeight, 0.12]} />
-                    <meshBasicMaterial color="#2a2a2a" />
+                    <meshBasicMaterial color="#2e2318" />
                 </mesh>
             </group>
 

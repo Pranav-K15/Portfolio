@@ -100,7 +100,7 @@ const AwardButton = ({ onClick, texture, paintedTexture, width, height, position
             {/* Painted button (behind) - hidden until hover */}
             <mesh ref={paintedRef} position={[0, 0, -0.001]} visible={true}>
                 <planeGeometry args={[width, height]} />
-                <meshBasicMaterial color="#e0e0e0"
+                <meshBasicMaterial color="#f0e6d2"
                     map={paintedTexture}
                     transparent
                     opacity={0}
@@ -129,7 +129,7 @@ const AwardButton = ({ onClick, texture, paintedTexture, width, height, position
             <Text
                 position={[0, 0, 0.05]}
                 fontSize={0.25}
-                color="#1a1a1a"
+                color="#2b2016"
                 anchorX="center"
                 anchorY="middle"
                 font="/fonts/CabinSketch-Bold.ttf"
@@ -339,7 +339,7 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
                 ref={titleRef}
                 position={[0, 5, 0.1]}
                 fontSize={0.8}
-                color="#1a1a1a"
+                color="#2b2016"
                 anchorX="center"
                 anchorY="middle"
                 font="/fonts/RubikScribble-Regular.ttf"
@@ -352,7 +352,7 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
                 ref={brandRef}
                 position={[0, 4.3, 0.1]}
                 fontSize={0.4}
-                color="#4a4a4a"
+                color="#5c4f3d"
                 anchorX="center"
                 anchorY="middle"
                 font="/fonts/CabinSketch-Regular.ttf"
@@ -364,16 +364,16 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
             <group ref={avatarRef} position={[0, baseY, 0]}>
                 <mesh>
                     <circleGeometry args={[1.1, 48]} />
-                    <meshBasicMaterial color="#f0f0f0" transparent side={THREE.DoubleSide} depthWrite={false} />
+                    <meshBasicMaterial color="#f5ecd9" transparent side={THREE.DoubleSide} depthWrite={false} />
                 </mesh>
                 <mesh>
                     <ringGeometry args={[1.05, 1.1, 48]} />
-                    <meshBasicMaterial color="#333333" transparent side={THREE.DoubleSide} depthWrite={false} />
+                    <meshBasicMaterial color="#3d3226" transparent side={THREE.DoubleSide} depthWrite={false} />
                 </mesh>
                 <Text
                     position={[0, 0, 0.01]}
                     fontSize={0.9}
-                    color="#1a1a1a"
+                    color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/RubikScribble-Regular.ttf"
@@ -387,7 +387,7 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
                 ref={motto1Ref}
                 position={[0, 0, 0.1]}
                 fontSize={0.32}
-                color="#555555"
+                color="#63563f"
                 anchorX="center"
                 anchorY="middle"
                 font="/fonts/CabinSketch-Regular.ttf"
@@ -401,7 +401,7 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
                 ref={motto2Ref}
                 position={[0, -0.5, 0]}
                 fontSize={0.32}
-                color="#555555"
+                color="#63563f"
                 anchorX="center"
                 anchorY="middle"
                 font="/fonts/CabinSketch-Regular.ttf"
@@ -427,7 +427,7 @@ const AWARDS_DATA = {
         ],
         platformConfig: {
             label: 'AWARD',
-            color: '#1a1a1a',
+            color: '#2b2016',
             icon: '🏆'
         }
     },
@@ -440,7 +440,7 @@ const AWARDS_DATA = {
         ],
         platformConfig: {
             label: 'AWARD',
-            color: '#1a1a1a',
+            color: '#2b2016',
             icon: '📅'
         }
     },
@@ -453,7 +453,7 @@ const AWARDS_DATA = {
         ],
         platformConfig: {
             label: 'PRESTIGE',
-            color: '#1a1a1a',
+            color: '#2b2016',
             icon: '👑'
         }
     }
@@ -608,7 +608,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
             <Text
                 position={[0, 4, 0]}
                 fontSize={1.2}
-                color="#1a1a1a"
+                color="#2b2016"
                 anchorX="center"
                 anchorY="middle"
                 font="/fonts/RubikScribble-Regular.ttf"
@@ -621,7 +621,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                 {/* Painted card (behind) - hidden until button hover */}
                 <mesh ref={sotdCardPaintedRef} position={[0, 0, -0.001]} visible={true}>
                     <planeGeometry args={[cardHeight * cardLegacyAspect, cardHeight]} />
-                    <meshBasicMaterial color="#e0e0e0"
+                    <meshBasicMaterial color="#f0e6d2"
                         map={sotdPaintedTexture}
                         transparent
                         opacity={0}
@@ -658,7 +658,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                     position={[0, 0.95, 0.01]}
                     fontSize={0.3}
                     maxWidth={cardHeight * cardLegacyAspect * 0.9}
-                    color="#1a1a1a"
+                    color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
@@ -669,7 +669,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                 <Text
                     position={[-0.05, 0, 0.01]}
                     fontSize={0.8}
-                    color="#1a1a1a"
+                    color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
@@ -683,7 +683,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                 {/* Painted card (behind) - hidden until button hover */}
                 <mesh ref={sotmCardPaintedRef} position={[0, 0, -0.001]} visible={true}>
                     <planeGeometry args={[cardHeight * cardLegacyAspect, cardHeight]} />
-                    <meshBasicMaterial color="#e0e0e0"
+                    <meshBasicMaterial color="#f0e6d2"
                         map={sotmPaintedTexture}
                         transparent
                         opacity={0}
@@ -720,7 +720,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                     position={[0, 0.95, 0.01]}
                     fontSize={0.3}
                     maxWidth={cardHeight * cardLegacyAspect * 0.9}
-                    color="#1a1a1a"
+                    color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
@@ -731,7 +731,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                 <Text
                     position={[-0.05, 0, 0.01]}
                     fontSize={0.8}
-                    color="#1a1a1a"
+                    color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
@@ -745,7 +745,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                 {/* Painted card (behind) - hidden until button hover */}
                 <mesh ref={sotyCardPaintedRef} position={[0, 0, -0.001]} visible={true}>
                     <planeGeometry args={[cardHeight * cardLegacyAspect, cardHeight]} />
-                    <meshBasicMaterial color="#e0e0e0"
+                    <meshBasicMaterial color="#f0e6d2"
                         map={sotyPaintedTexture}
                         transparent
                         opacity={0}
@@ -780,7 +780,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                 <Text
                     position={[0, 0.95, 0.01]}
                     fontSize={0.45}
-                    color="#1a1a1a"
+                    color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
@@ -791,7 +791,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                 <Text
                     position={[-0.05, 0, 0.01]}
                     fontSize={0.8}
-                    color="#1a1a1a"
+                    color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
@@ -885,7 +885,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
             <Text
                 position={[0, 5, 0.3]}
                 fontSize={1.2}
-                color="#1a1a1a"
+                color="#2b2016"
                 anchorX="center"
                 anchorY="middle"
                 font="/fonts/RubikScribble-Regular.ttf"
@@ -897,7 +897,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
             <Text
                 position={[0, 4.2, 0.3]}
                 fontSize={0.35}
-                color="#555555"
+                color="#63563f"
                 anchorX="center"
                 anchorY="middle"
                 font="/fonts/CabinSketch-Regular.ttf"
@@ -909,7 +909,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
             <group ref={uoRef} position={[-3.5, -1, 0]}>
                 <mesh>
                     <planeGeometry args={[islandHeight * uoAspect, islandHeight]} />
-                    <meshBasicMaterial color="#f0f0f0"
+                    <meshBasicMaterial color="#f5ecd9"
                         map={paperTexture}
                         transparent
                         side={THREE.DoubleSide}
@@ -918,7 +918,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                 <Text
                     position={[0, 0.75, 0.1]}
                     fontSize={0.42}
-                    color="#1a1a1a"
+                    color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
@@ -930,7 +930,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                     fontSize={0.28}
                     maxWidth={islandHeight * uoAspect * 0.85}
                     textAlign="center"
-                    color="#333333"
+                    color="#3d3226"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Regular.ttf"
@@ -940,7 +940,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                 <Text
                     position={[0, -0.45, 0.1]}
                     fontSize={0.3}
-                    color="#1a1a1a"
+                    color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
@@ -950,7 +950,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                 <Text
                     position={[0, -0.9, 0.1]}
                     fontSize={0.26}
-                    color="#555555"
+                    color="#63563f"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Regular.ttf"
@@ -963,7 +963,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
             <group ref={freelanceRef} position={[3.5, -2, 0.5]}>
                 <mesh>
                     <planeGeometry args={[islandHeight * freelanceAspect, islandHeight]} />
-                    <meshBasicMaterial color="#f0f0f0"
+                    <meshBasicMaterial color="#f5ecd9"
                         map={paperTexture}
                         transparent
                         side={THREE.DoubleSide}
@@ -974,7 +974,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                     fontSize={0.36}
                     maxWidth={islandHeight * freelanceAspect * 0.85}
                     textAlign="center"
-                    color="#1a1a1a"
+                    color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
@@ -986,7 +986,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                     fontSize={0.26}
                     maxWidth={islandHeight * freelanceAspect * 0.85}
                     textAlign="center"
-                    color="#333333"
+                    color="#3d3226"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Regular.ttf"
@@ -996,7 +996,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                 <Text
                     position={[0, -0.85, 0.1]}
                     fontSize={0.3}
-                    color="#1a1a1a"
+                    color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
@@ -1295,7 +1295,7 @@ const SkillBalloon = ({ config, revealFactorRef, spreadFactorRef, timeRef }) => 
                 {/* Painted balloon (behind) - hidden until hover */}
                 <mesh ref={paintedMeshRef} visible={true}>
                     <planeGeometry args={[baseHeight * aspect, baseHeight]} />
-                    <meshBasicMaterial color="#e0e0e0"
+                    <meshBasicMaterial color="#f0e6d2"
                         ref={paintedMatRef}
                         map={paintedTexture}
                         transparent
@@ -1345,13 +1345,13 @@ const SkillBalloon = ({ config, revealFactorRef, spreadFactorRef, timeRef }) => 
                         ref={textRef}
                         position={[0, 0, 0.1]}
                         fontSize={baseHeight * 0.4}
-                        color="#1a1a1a"
+                        color="#2b2016"
                         anchorX="center"
                         anchorY="middle"
                         font="/fonts/RubikScribble-Regular.ttf"
                         fillOpacity={0}
                         outlineWidth={0.02}
-                        outlineColor="#fff"
+                        outlineColor="#faf3e6"
                         outlineOpacity={0}
                     >
                         {config.label}
@@ -1434,7 +1434,7 @@ const SkillsMilestone = ({ z, scrollProgressRef }) => {
             <Text
                 position={[0, 6, 0.5]}
                 fontSize={1.2}
-                color="#1a1a1a"
+                color="#2b2016"
                 anchorX="center"
                 anchorY="middle"
                 font="/fonts/RubikScribble-Regular.ttf"
@@ -1446,7 +1446,7 @@ const SkillsMilestone = ({ z, scrollProgressRef }) => {
             <Text
                 position={[0, 5.2, 0.5]}
                 fontSize={0.35}
-                color="#555555"
+                color="#63563f"
                 anchorX="center"
                 anchorY="middle"
                 font="/fonts/CabinSketch-Regular.ttf"

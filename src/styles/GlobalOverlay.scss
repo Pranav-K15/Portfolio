@@ -30,7 +30,7 @@
 
 .studio-paper-card {
     position: relative;
-    background: #ffffff;
+    background: #faf3e6;
 
     // Paper texture background
     &::before {
@@ -88,7 +88,7 @@
         width: 20px;
         height: 20px;
         fill: none;
-        stroke: #1a1a1a;
+        stroke: #2b2016;
         stroke-width: 2.5;
         stroke-linecap: round;
     }
@@ -107,10 +107,10 @@
     width: 100%;
     margin-top: 10px;
     margin-bottom: 5px;
-    border: 2px solid #1a1a1a;
+    border: 2px solid #2b2016;
     border-radius: 4px;
     overflow: hidden;
-    background: #000;
+    background: #1f160d;
     position: relative;
     padding-top: 56.25%; // 16:9 Aspect Ratio
 
@@ -133,7 +133,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #e0e0e0;
+        background: #f0e6d2;
         color: #666;
         font-family: 'Rubik Scribble', cursive;
         font-weight: 700;
@@ -146,8 +146,8 @@
     width: 100%;
     padding: 0.8rem;
     background: transparent;
-    border: 2px solid #1a1a1a;
-    color: #1a1a1a;
+    border: 2px solid #2b2016;
+    color: #2b2016;
     text-align: center;
     text-decoration: none;
     font-weight: 700;
@@ -163,8 +163,8 @@
     border-radius: 2px 255px 3px 255px / 255px 5px 225px 3px;
 
     &:hover {
-        background: #1a1a1a;
-        color: #fff;
+        background: #2b2016;
+        color: #faf3e6;
         transform: translateY(-2px);
         box-shadow: 4px 4px 0 rgba(26, 26, 26, 0.2);
     }

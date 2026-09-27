@@ -105,42 +105,42 @@ const StoryMilestone = ({
             case 'intro':
                 return {
                     titleSize: 1.8,
-                    titleColor: '#1a1a1a',
+                    titleColor: '#2b2016',
                     subtitleSize: 0.4,
-                    subtitleColor: '#4a4a4a',
-                    decorColor: '#e0e0e0'
+                    subtitleColor: '#5c4f3d',
+                    decorColor: '#f0e6d2'
                 };
             case 'awards':
                 return {
                     titleSize: 1.5,
-                    titleColor: '#2a2a2a',
+                    titleColor: '#2e2318',
                     subtitleSize: 0.35,
-                    subtitleColor: '#666666',
+                    subtitleColor: '#6f6248',
                     decorColor: '#ffd700'
                 };
             case 'journey':
                 return {
                     titleSize: 1.5,
-                    titleColor: '#2a2a2a',
+                    titleColor: '#2e2318',
                     subtitleSize: 0.35,
-                    subtitleColor: '#666666',
+                    subtitleColor: '#6f6248',
                     decorColor: '#87CEEB'
                 };
             case 'skills':
                 return {
                     titleSize: 1.5,
-                    titleColor: '#2a2a2a',
+                    titleColor: '#2e2318',
                     subtitleSize: 0.35,
-                    subtitleColor: '#666666',
+                    subtitleColor: '#6f6248',
                     decorColor: '#90EE90'
                 };
             default:
                 return {
                     titleSize: 1.5,
-                    titleColor: '#2a2a2a',
+                    titleColor: '#2e2318',
                     subtitleSize: 0.35,
-                    subtitleColor: '#666666',
-                    decorColor: '#e0e0e0'
+                    subtitleColor: '#6f6248',
+                    decorColor: '#f0e6d2'
                 };
         }
     }, [type]);
@@ -195,7 +195,7 @@ const StoryMilestone = ({
                     <circleGeometry args={[0.8, 32]} />
                     <meshBasicMaterial
                         ref={avatarRef}
-                        color="#cccccc"
+                        color="#d9cdb5"
                         transparent
                         opacity={0}
                         side={THREE.DoubleSide}

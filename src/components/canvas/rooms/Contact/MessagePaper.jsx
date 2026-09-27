@@ -63,7 +63,7 @@ const InteractiveTextField = ({
             {/* Invisible Hitbox - colorWrite=false prevents grey artifacts while keeping raycast */}
             <mesh position={hitboxPosition} rotation={[-Math.PI / 2, 0, 0]}>
                 <planeGeometry args={hitboxSize} />
-                <meshBasicMaterial color="#e0e0e0" colorWrite={false} depthWrite={false} />
+                <meshBasicMaterial color="#f0e6d2" colorWrite={false} depthWrite={false} />
             </mesh>
 
             <Text
@@ -72,7 +72,7 @@ const InteractiveTextField = ({
                 position={position}
                 rotation={baseRotation}
                 fontSize={fontSize}
-                color={hovered ? '#111111' : '#333333'} // Snap color, smooth motion
+                color={hovered ? '#111111' : '#3d3226'} // Snap color, smooth motion
                 font={fontPath}
                 anchorX={anchorX}
                 anchorY={anchorY}
@@ -122,7 +122,7 @@ const SmoothButton = ({ texture, onClick, position, size, text, fontPath }) => {
         >
             <mesh rotation={[-Math.PI / 2, 0, 0]}>
                 <planeGeometry args={size} />
-                <meshBasicMaterial color="#e0e0e0"
+                <meshBasicMaterial color="#f0e6d2"
                     map={texture}
                     transparent
                     alphaTest={0.1}
@@ -134,7 +134,7 @@ const SmoothButton = ({ texture, onClick, position, size, text, fontPath }) => {
                     position={[0, 0.005, 0]}
                     rotation={[-Math.PI / 2, 0, 0]}
                     fontSize={0.06}
-                    color="#333333"
+                    color="#3d3226"
                     font={fontPath}
                     anchorX="center"
                     anchorY="middle"
@@ -569,7 +569,7 @@ const MessagePaper = ({ position = [0, 0.05, 2], onSend }) => {
             {/* Main Paper Mesh - FRONT (with texture) */}
             <mesh ref={paperRef} rotation={[-Math.PI / 2, 0, 0]} onClick={handlePaperClick}>
                 <planeGeometry args={[PAPER_WIDTH, PAPER_HEIGHT, 20, 20]} />
-                <meshBasicMaterial color="#e0e0e0"
+                <meshBasicMaterial color="#f0e6d2"
                     map={paperTexture}
                     transparent
                     alphaTest={0.5}

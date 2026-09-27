@@ -29,8 +29,8 @@ const AchievementsPanel = ({ isOpen, onClose }) => {
                                 <div className="achievement-icon">
                                     {isUnlocked ? (
                                         <svg viewBox="0 0 24 24" className="icon-unlocked">
-                                            <path d="M12 15l-3-3 1.4-1.4 1.6 1.6 4.6-4.6L18 9" fill="none" stroke="#1a1a1a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            <circle cx="12" cy="12" r="10" fill="none" stroke="#1a1a1a" strokeWidth="2" />
+                                            <path d="M12 15l-3-3 1.4-1.4 1.6 1.6 4.6-4.6L18 9" fill="none" stroke="#2b2016" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            <circle cx="12" cy="12" r="10" fill="none" stroke="#2b2016" strokeWidth="2" />
                                         </svg>
                                     ) : (
                                         <svg viewBox="0 0 24 24" className="icon-locked">

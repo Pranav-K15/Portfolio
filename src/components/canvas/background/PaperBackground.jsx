@@ -25,7 +25,7 @@ const PaperBackground = () => {
                 <planeGeometry args={[25, 18]} />
                 <meshBasicMaterial
                     map={paperTexture}
-                    color="#fafafa"
+                    color="#faf3e6"
                     roughness={1}
                     metalness={0}
                 />
@@ -79,7 +79,7 @@ const GridLines = () => {
                 >
                     <planeGeometry args={[line.width, 0.01]} />
                     <meshBasicMaterial
-                        color="#cccccc"
+                        color="#d9cdb5"
                         transparent
                         opacity={line.opacity}
                     />

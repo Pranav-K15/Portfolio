@@ -78,18 +78,14 @@ function setup({ reduced = false } = {}) {
 
 test('all destinations are present in HTML, and the portfolio appears once', () => {
   const anchors = [...html.matchAll(/<a\b([^>]+)>([\s\S]*?)<\/a>/g)];
-  assert.equal(anchors.length, 14); // Thirteen destinations and the skip link.
+  assert.equal(anchors.length, 5); // Skip link, portfolio link, and 3 profile links.
   assert.equal(anchors.filter(match => /href="\/"/.test(match[1])).length, 1);
-  assert.equal(anchors.filter(match => /data-pending/.test(match[1])).length, 8);
   const urls = anchors.map(match => match[1].match(/href="(https:[^"]+)"/)?.[1]).filter(Boolean);
   assert.deepEqual(urls, [
-    'https://www.facebook.com/people/ITom/61586563487664/',
-    'https://github.com/ITomPoland',
-    'https://www.instagram.com/itom.dev/',
-    'https://www.linkedin.com/in/tomasz-szmajda-259337305/',
+    'https://github.com/Pranav-K15',
+    'https://www.linkedin.com/in/pranav-kad/',
   ]);
   assert.match(html, /aria-label="Interactive Portfolio"/);
-  assert.match(html, /aria-label="UI Sketchbook"/);
 });
 
 test('static entry stays isolated and uses only one locally hosted font', () => {

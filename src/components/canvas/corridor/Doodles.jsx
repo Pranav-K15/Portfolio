@@ -156,7 +156,7 @@ const SketchElement = ({
             {/* Shadow layer */}
             <mesh position={[0.01, -0.01, -0.01]}>
                 <planeGeometry args={[dimensions.width, dimensions.height]} />
-                <meshBasicMaterial color="#e0e0e0"
+                <meshBasicMaterial color="#f0e6d2"
                     map={texture}
                     transparent={true}
                     opacity={0.15}
@@ -168,7 +168,7 @@ const SketchElement = ({
             {/* Main element */}
             <mesh>
                 <planeGeometry args={[dimensions.width, dimensions.height]} />
-                <meshBasicMaterial color="#e0e0e0"
+                <meshBasicMaterial color="#f0e6d2"
                     map={texture}
                     transparent={true}
                     side={THREE.DoubleSide}
@@ -201,7 +201,7 @@ const AnimatedStar = ({ position, scale = 0.1, speed = 0.5 }) => {
             {[0, 1, 2, 3].map((i) => (
                 <mesh key={i} rotation={[0, 0, (i * Math.PI) / 4]}>
                     <planeGeometry args={[1, 0.12]} />
-                    <meshBasicMaterial color="#2a2a2a" transparent opacity={0.7} side={2} />
+                    <meshBasicMaterial color="#2e2318" transparent opacity={0.7} side={2} />
                 </mesh>
             ))}
         </group>
@@ -250,7 +250,7 @@ const DoodleCircle = ({ position, scale = 0.08 }) => {
     return (
         <mesh ref={ref} position={position}>
             <ringGeometry args={[0.6, 1, 12]} />
-            <meshBasicMaterial color="#333" transparent opacity={0.4} side={2} />
+            <meshBasicMaterial color="#3d3226" transparent opacity={0.4} side={2} />
         </mesh>
     );
 };
@@ -280,21 +280,21 @@ const ThoughtBubble = ({ position }) => {
             {/* Main bubble */}
             <mesh>
                 <circleGeometry args={[0.12, 16]} />
-                <meshBasicMaterial color="#fff" />
+                <meshBasicMaterial color="#faf3e6" />
             </mesh>
             <mesh>
                 <ringGeometry args={[0.11, 0.13, 16]} />
-                <meshBasicMaterial color="#333" />
+                <meshBasicMaterial color="#3d3226" />
             </mesh>
 
             {/* Small bubbles leading to main */}
             <mesh position={[-0.1, -0.1, 0]}>
                 <circleGeometry args={[0.035, 8]} />
-                <meshBasicMaterial color="#fff" />
+                <meshBasicMaterial color="#faf3e6" />
             </mesh>
             <mesh position={[-0.1, -0.1, 0]}>
                 <ringGeometry args={[0.03, 0.04, 8]} />
-                <meshBasicMaterial color="#333" />
+                <meshBasicMaterial color="#3d3226" />
             </mesh>
 
             {/* Content inside bubble - code icon */}

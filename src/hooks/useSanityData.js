@@ -141,21 +141,21 @@ export function loadSanityData() {
                         layout: 'certificate_grid',
                         title: 'Site of the Day Awards',
                         items: mapItems(awardsData.filter(a => a.category === 'sotd')),
-                        platformConfig: { label: 'ACHIEVEMENT', color: '#1a1a1a', icon: '🏆' }
+                        platformConfig: { label: 'ACHIEVEMENT', color: '#2b2016', icon: '🏆' }
                     },
                     sotm: {
                         id: 'award-sotm',
                         layout: 'certificate_grid',
                         title: 'Site of the Month Awards',
                         items: mapItems(awardsData.filter(a => a.category === 'sotm')),
-                        platformConfig: { label: 'AWARD', color: '#1a1a1a', icon: '📅' }
+                        platformConfig: { label: 'AWARD', color: '#2b2016', icon: '📅' }
                     },
                     other: {
                         id: 'award-other',
                         layout: 'certificate_grid',
                         title: 'Other Awards',
                         items: mapItems(awardsData.filter(a => a.category === 'other')),
-                        platformConfig: { label: 'PRESTIGE', color: '#1a1a1a', icon: '👑' }
+                        platformConfig: { label: 'PRESTIGE', color: '#2b2016', icon: '👑' }
                     }
                 };
             }

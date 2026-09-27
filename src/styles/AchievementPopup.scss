@@ -6,7 +6,7 @@
     opacity: 0;
     pointer-events: none; // It's just a visual popup
     z-index: 110;
-    background: #ffffff;
+    background: #faf3e6;
     padding: 12px 24px;
     display: flex;
     align-items: center;
@@ -61,7 +61,7 @@
     .checkbox {
         width: 24px;
         height: 24px;
-        border: 2px solid #1a1a1a;
+        border: 2px solid #2b2016;
         border-radius: 4px;
         display: flex;
         align-items: center;
@@ -91,7 +91,7 @@
             font-family: 'Patrick Hand', cursive, sans-serif;
             font-size: 14px;
             font-weight: 700;
-            color: #1a1a1a;
+            color: #2b2016;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 2px;
@@ -119,7 +119,7 @@
                 align-items: center;
 
                 &.on {
-                    color: #1a1a1a;
+                    color: #2b2016;
                 }
 
                 &.off {

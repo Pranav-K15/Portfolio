@@ -217,7 +217,7 @@ const ContentCard = ({ content, isOpen, onClose, isMobile }) => {
         left: '50%',
         transform: isOpen ? 'translate(-50%, 0) rotate(-1deg)' : 'translate(-50%, 120%) rotate(10deg)',
         opacity: isOpen ? 1 : 0,
-        color: '#1a1a1a',
+        color: '#2b2016',
     } : {
         // DESKTOP: Karta po prawej
         width: 'clamp(280px, 30vw, 450px)', // <--- FLUID
@@ -225,7 +225,7 @@ const ContentCard = ({ content, isOpen, onClose, isMobile }) => {
         top: '50%',
         transform: isOpen ? 'translateY(-50%) rotate(1deg)' : 'translate(150%, -50%) rotate(15deg)',
         opacity: isOpen ? 1 : 0,
-        color: '#1a1a1a',
+        color: '#2b2016',
     };
 
     // Staggered animation helper (delays based on index)
@@ -345,7 +345,7 @@ const ContentCard = ({ content, isOpen, onClose, isMobile }) => {
                         <path
                             d="M 0 0 L 4 1 L 8 0 L 12 1 L 16 0 L 20 1 L 24 0 L 28 1 L 32 0 L 36 1 L 40 0 L 44 1 L 48 0 L 52 1 L 56 0 L 60 1 L 64 0 L 68 1 L 72 0 L 76 1 L 80 0 L 84 1 L 88 0 L 92 1 L 96 0 L 100 0 L 99 3 L 100 6 L 98 10 L 100 14 L 99 18 L 100 22 L 98 26 L 100 30 L 99 35 L 100 40 L 98 45 L 100 50 L 99 55 L 100 60 L 98 65 L 100 70 L 99 75 L 100 80 L 98 85 L 100 90 L 99 95 L 100 100 L 96 99 L 92 100 L 88 98 L 84 100 L 80 99 L 76 100 L 72 98 L 68 100 L 64 99 L 60 100 L 56 98 L 52 100 L 48 99 L 44 100 L 40 98 L 36 100 L 32 99 L 28 100 L 24 98 L 20 100 L 16 99 L 12 100 L 8 98 L 4 100 L 0 99 L 0.5 99.5 L 1 95 L 0 90 L 2 85 L 0 80 L 1 75 L 0 70 L 2 65 L 0 60 L 1 55 L 0 50 L 2 45 L 0 40 L 1 35 L 0 30 L 2 26 L 0 22 L 1 18 L 0 14 L 2 10 L 0 6 L 1 3 L 0 0 Z"
                             fill="none"
-                            stroke="#1a1a1a"
+                            stroke="#2b2016"
                             strokeWidth="1.5"
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -430,7 +430,7 @@ const ContentCard = ({ content, isOpen, onClose, isMobile }) => {
                                         gap: '0.8rem',
                                         backgroundColor: '#f9f9f9',
                                         padding: '1rem',
-                                        border: '2px solid #1a1a1a',
+                                        border: '2px solid #2b2016',
                                         boxShadow: '4px 4px 0px rgba(0,0,0,0.1)',
                                         transition: 'transform 0.2s',
                                         cursor: 'pointer',
@@ -444,8 +444,8 @@ const ContentCard = ({ content, isOpen, onClose, isMobile }) => {
                                             position: 'relative',
                                             width: '100%',
                                             paddingBottom: '141%', // A4 Portrait ratio
-                                            backgroundColor: '#eee',
-                                            border: '2px solid #1a1a1a',
+                                            backgroundColor: '#f0e6d2',
+                                            border: '2px solid #2b2016',
                                             overflow: 'hidden',
                                             borderRadius: '2px 255px 3px 255px / 255px 5px 225px 3px'
                                         }}>
@@ -468,7 +468,7 @@ const ContentCard = ({ content, isOpen, onClose, isMobile }) => {
                                             <h4 style={{ margin: '0 0 0.4rem 0', fontSize: '1.2rem', fontWeight: 700, fontFamily: "'Rubik Scribble', cursive" }}>
                                                 {item.label}
                                             </h4>
-                                            <span style={{ fontSize: '1.1rem', color: '#4a4a4a', fontFamily: "'Cabin Sketch', cursive", fontWeight: 700 }}>
+                                            <span style={{ fontSize: '1.1rem', color: '#5c4f3d', fontFamily: "'Cabin Sketch', cursive", fontWeight: 700 }}>
                                                 {item.date}
                                             </span>
                                         </div>
@@ -517,7 +517,7 @@ const ContentCard = ({ content, isOpen, onClose, isMobile }) => {
                                 ref={descriptionRef}
                                 style={{
                                 lineHeight: 1.6,
-                                color: '#333',
+                                color: '#3d3226',
                                 fontSize: '0.95rem',
                                 margin: 0,
                                 minHeight: '80px', // Prevent layout jump while typing

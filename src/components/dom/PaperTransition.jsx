@@ -24,7 +24,7 @@ const TearLineSVG = ({ svgPathData }) => (
         <path
             d={svgPathData}
             fill="none"
-            stroke="#1a1a1a"
+            stroke="#2b2016"
             strokeWidth="0.1"
             strokeLinecap="round"
             strokeLinejoin="round"

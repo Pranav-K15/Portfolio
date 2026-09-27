@@ -202,7 +202,7 @@ const FloatingCodeParticles = ({ towerRotationRef, fallOffsetRef }) => {
                     ref={(el) => { meshRefs.current[index] = el; }}
                     position={particle.position}
                     fontSize={particle.symbol.size}
-                    color="#1a1a1a"
+                    color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
                     fillOpacity={particle.opacity}

@@ -1,4 +1,4 @@
-# 🎨 Portfolio ITOM - Project Documentation
+# 🎨 Pranav Kad Portfolio - Project Documentation
 
 > **For AI Agents**: Read this file first to understand the project before making changes.
 

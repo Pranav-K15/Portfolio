@@ -18,8 +18,8 @@ const PHONE_FRONT_PAINTED = '/textures/studio/phone_front_painted.webp';
 
 export const PLATFORM_CONFIG = {
     languages: {
-        color: '#333333',
-        accentColor: '#1a1a1a',
+        color: '#3d3226',
+        accentColor: '#2b2016',
         icon: '{ }',
         label: 'Languages',
         shape: 'tv',
@@ -53,7 +53,7 @@ export const PLATFORM_CONFIG = {
         shape: 'monitor',
     },
     tools: {
-        color: '#666666',
+        color: '#6f6248',
         accentColor: '#444444',
         icon: '✦',
         label: 'Tools',
