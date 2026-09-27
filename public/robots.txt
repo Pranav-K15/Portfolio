@@ -22,4 +22,4 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
-Sitemap: https://your-domain-here.com/sitemap.xml
+Sitemap: https://portfolio-one-amber-dsuzizw4wq.vercel.app/sitemap.xml
