@@ -36,7 +36,7 @@ const Doodles = () => {
             {/* Paper Airplane - BIGGER, above head */}
             <SketchElement
                 texture={textures.paperAirplane}
-                position={[0.5, 0.8, 0.3]}
+                position={[1.6, 1.3, 0.3]}
                 scale={0.55}
                 rotationSpeed={0.15}
                 floatSpeed={0.7}
@@ -46,7 +46,7 @@ const Doodles = () => {
             {/* Paper Ball - BIGGER, lower left near creative developer */}
             <SketchElement
                 texture={textures.paperBall}
-                position={[-0.9, -0.7, 0.4]}
+                position={[-1.65, -1.2, 0.4]}
                 scale={0.4}
                 rotationSpeed={0.4}
                 floatSpeed={0.5}
@@ -56,7 +56,7 @@ const Doodles = () => {
             {/* Second Paper Ball - upper left, bigger */}
             <SketchElement
                 texture={textures.paperBall}
-                position={[-1.3, 0.5, -0.2]}
+                position={[-1.65, 0.3, -0.2]}
                 scale={0.3}
                 rotationSpeed={-0.3}
                 floatSpeed={0.6}
@@ -66,7 +66,7 @@ const Doodles = () => {
             {/* Pencil - BIGGER, under creative developer */}
             <SketchElement
                 texture={textures.pencil}
-                position={[0.7, -0.8, 0.5]}
+                position={[1.55, -1.25, 0.5]}
                 scale={0.5}
                 rotationSpeed={0.1}
                 floatSpeed={0.4}
@@ -77,7 +77,7 @@ const Doodles = () => {
             {/* Coffee Cup - bigger, upper right */}
             <SketchElement
                 texture={textures.coffeeCup}
-                position={[1.2, 0.6, -0.1]}
+                position={[1.65, 0.35, -0.1]}
                 scale={0.35}
                 rotationSpeed={0.05}
                 floatSpeed={0.35}
@@ -95,14 +95,14 @@ const Doodles = () => {
 
                     {/* Hand-drawn circles */}
                     <DoodleCircle position={[1.2, -0.2, 0.2]} scale={0.05} />
-                    <DoodleCircle position={[-1.3, 1.0, 0.3]} scale={0.04} />
+                    <DoodleCircle position={[-1.45, 1.05, 0.3]} scale={0.04} />
 
                     {/* Squiggly decorative lines */}
                     <Squiggle position={[-1.6, 0.5, -0.3]} rotation={0.2} />
                     <Squiggle position={[1.4, 0.3, 0.2]} rotation={-0.3} />
 
                     {/* Thought bubble near avatar */}
-                    <ThoughtBubble position={[0.9, 0.7, 0.5]} />
+                    <ThoughtBubble position={[1.4, 0.0, 0.5]} />
                 </>
             )}
         </group>

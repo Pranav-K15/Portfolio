@@ -51,7 +51,8 @@ const AchievementPopup = () => {
                     </div>
                 )}
                 <div className="text-content" style={isSoundPrompt ? { alignItems: 'center', textAlign: 'center' } : {}}>
-                    <span className="title">{data.title}</span>
+                    {/* The entrance prompt is a welcome tip, not an achievement, so it gets a plain heading */}
+                    <span className="title">{isSoundPrompt ? 'Welcome' : data.title}</span>
 
                     {!isSoundPrompt ? (
                         <span className="description">{data.label}</span>

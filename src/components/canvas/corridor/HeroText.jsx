@@ -9,6 +9,9 @@ const BODY_FONT_URL = '/fonts/Kalam-Regular.ttf';
 
 const INK = '#2b2016';
 
+// Name sits above the avatar's head so it's readable from the start of the corridor
+const NAME_Y = 1.0;
+
 /**
  * HeroText - name in marker ink with a tagline underneath.
  * Letters and tagline words split apart as the camera walks through them.
@@ -102,7 +105,7 @@ const HeroText = ({ position = [0, 0.3, 0] }) => {
 
                 const letter = letters[i];
                 ref.position.x = letter.baseX + letter.splitDir * splitAmount.current;
-                ref.position.y = 0.2 + Math.sin(time * 0.7 + i * 0.5) * 0.015;
+                ref.position.y = NAME_Y + Math.sin(time * 0.7 + i * 0.5) * 0.015;
                 ref.rotation.z = Math.sin(time * 0.5 + i) * 0.02 * (1 + splitAmount.current);
             }
         });
@@ -131,7 +134,7 @@ const HeroText = ({ position = [0, 0.3, 0] }) => {
                 <Text
                     key={letter.key}
                     ref={(el) => (letterRefs.current[i] = el)}
-                    position={[letter.baseX, 0.2, 0]}
+                    position={[letter.baseX, NAME_Y, 0]}
                     fontSize={0.62}
                     font={TITLE_FONT_URL}
                     color={INK}
@@ -159,6 +162,12 @@ const HeroText = ({ position = [0, 0.3, 0] }) => {
                 </Text>
             ))}
 
+            {/* Soft paper backing so the tagline + stack stay readable over the avatar */}
+            <mesh position={[0, -0.6, 0.28]}>
+                <planeGeometry args={[2.75, 0.52]} />
+                <meshBasicMaterial color="#faf3e6" transparent opacity={0.82} depthWrite={false} />
+            </mesh>
+
             <Text
                 position={[0, -0.72, 0.3]}
                 fontSize={0.1}
@@ -172,11 +181,11 @@ const HeroText = ({ position = [0, 0.3, 0] }) => {
             </Text>
 
             {/* Hand-drawn underline beneath the name */}
-            <mesh position={[0, -0.18, 0]} rotation={[0, 0, -0.025]}>
+            <mesh position={[0, NAME_Y - 0.38, 0]} rotation={[0, 0, -0.025]}>
                 <planeGeometry args={[2.3, 0.022]} />
                 <meshBasicMaterial color={INK} transparent opacity={0.75} side={2} />
             </mesh>
-            <mesh position={[0.15, -0.23, 0]} rotation={[0, 0, 0.02]}>
+            <mesh position={[0.15, NAME_Y - 0.43, 0]} rotation={[0, 0, 0.02]}>
                 <planeGeometry args={[1.7, 0.014]} />
                 <meshBasicMaterial color={INK} transparent opacity={0.45} side={2} />
             </mesh>
