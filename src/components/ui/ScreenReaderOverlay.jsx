@@ -44,7 +44,7 @@ const ScreenReaderOverlay = () => {
                             </li>
                             <li>
                                 <button onClick={() => teleportTo('gallery')} type="button">
-                                    The Gallery — My projects and work
+                                    Projects — My projects and work
                                 </button>
                             </li>
                             <li>
@@ -54,7 +54,7 @@ const ScreenReaderOverlay = () => {
                             </li>
                             <li>
                                 <button onClick={() => teleportTo('studio')} type="button">
-                                    The Studio — Technologies and experience
+                                    Skills — Technologies I work with
                                 </button>
                             </li>
                         </ul>
@@ -65,9 +65,9 @@ const ScreenReaderOverlay = () => {
                     <>
                         <p>
                             You are in the {currentRoom === 'about' ? 'About' :
-                                currentRoom === 'gallery' ? 'Gallery' :
+                                currentRoom === 'gallery' ? 'Projects' :
                                     currentRoom === 'contact' ? 'Contact' :
-                                        currentRoom === 'studio' ? 'Studio' : currentRoom} room.
+                                        currentRoom === 'studio' ? 'Skills' : currentRoom} room.
                         </p>
                         <button onClick={requestExit} type="button">
                             Go back to corridor
@@ -123,7 +123,7 @@ const ScreenReaderOverlay = () => {
                         )}
                         {currentRoom === 'studio' && (
                             <div aria-label="Studio room content">
-                                <h3>The Studio</h3>
+                                <h3>Skills</h3>
                                 <p>Explore my experience and skills on rotating monitors. Click a monitor to read detailed information about my work.</p>
 
                                 {studio && studio.length > 0 && (
@@ -147,13 +147,13 @@ const ScreenReaderOverlay = () => {
                                 <li><button onClick={() => teleportTo('about')} type="button">Go to About</button></li>
                             )}
                             {currentRoom !== 'gallery' && (
-                                <li><button onClick={() => teleportTo('gallery')} type="button">Go to Gallery</button></li>
+                                <li><button onClick={() => teleportTo('gallery')} type="button">Go to Projects</button></li>
                             )}
                             {currentRoom !== 'contact' && (
                                 <li><button onClick={() => teleportTo('contact')} type="button">Go to Contact</button></li>
                             )}
                             {currentRoom !== 'studio' && (
-                                <li><button onClick={() => teleportTo('studio')} type="button">Go to Studio</button></li>
+                                <li><button onClick={() => teleportTo('studio')} type="button">Go to Skills</button></li>
                             )}
                         </ul>
                     </>

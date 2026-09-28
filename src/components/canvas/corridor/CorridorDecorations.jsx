@@ -26,7 +26,7 @@ const tempEuler = new THREE.Euler();
 const tempQuat = new THREE.Quaternion();
 
 
-const CABIN_SKETCH_URL = '/fonts/CabinSketch-Regular.ttf';
+const CABIN_SKETCH_URL = '/fonts/Kalam-Regular.ttf';
 
 const PictureContent = ({ imagePath, imagePaintedPath, width, height, isPainted }) => {
     const texture = useTexture(imagePath);
@@ -297,6 +297,9 @@ const InspectableFrame = ({ frame, wallX, frameTexture, framePaintedTexture, CAB
                 />
             )}
 
+            {/* CODE ART */}
+            {frame.code && <FrameCode frame={frame} />}
+
             {/* PODPIS */}
             {frame.signature && (
                 <Text
@@ -314,6 +317,77 @@ const InspectableFrame = ({ frame, wallX, frameTexture, framePaintedTexture, CAB
                     {frame.signature}
                 </Text>
             )}
+        </group>
+    );
+};
+
+const MONO_FONT_URL = '/fonts/SpaceMono-Regular.ttf';
+
+const CODE_COLORS = {
+    text: 0x2b2016,
+    keyword: 0x9a3412,
+    string: 0x3f6212,
+    number: 0x1d4e89,
+    muted: 0x8f7f63,
+};
+
+const KEYWORDS = new Set(['const', 'let', 'while', 'return', 'GET', 'OK', 'git', 'Infinity', 'feat', 'deploy', 'chore']);
+
+// Minimal tokenizer -> troika `colorRanges` ({ charIndex: color }) for syntax highlighting
+const highlight = (code) => {
+    const ranges = { 0: CODE_COLORS.text };
+    const re = /(\b[0-9a-f]{7}\b)|("[^"\n]*")|(\b\d[\w.]*\b)|([A-Za-z_$][\w$]*)|(\$)/g;
+    let match;
+    while ((match = re.exec(code))) {
+        const [token, hash, str, num, word, prompt] = match;
+        let color = null;
+        if (hash) color = CODE_COLORS.muted;
+        else if (str) color = CODE_COLORS.string;
+        else if (num) color = CODE_COLORS.number;
+        else if (prompt) color = CODE_COLORS.muted;
+        else if (word && KEYWORDS.has(word)) color = CODE_COLORS.keyword;
+        if (color !== null) {
+            ranges[match.index] = color;
+            ranges[match.index + token.length] = CODE_COLORS.text;
+        }
+    }
+    return ranges;
+};
+
+// Code snippet "hung" inside a wall frame
+const FrameCode = ({ frame }) => {
+    const colorRanges = useMemo(() => highlight(frame.code), [frame.code]);
+    const longestLine = Math.max(...frame.code.split('\n').map((l) => l.length));
+    const fontSize = Math.min(0.1, (frame.width * 0.72) / (longestLine * 0.62));
+
+    return (
+        <group position={[0, 0, 0.02]}>
+            {frame.codeTitle && (
+                <Text
+                    position={[-frame.width * 0.36, frame.height * 0.3, 0]}
+                    fontSize={fontSize * 0.8}
+                    font={MONO_FONT_URL}
+                    color="#8f7f63"
+                    anchorX="left"
+                    anchorY="middle"
+                >
+                    {`// ${frame.codeTitle}`}
+                </Text>
+            )}
+            <Text
+                position={[0, -frame.height * 0.04, 0]}
+                fontSize={fontSize}
+                lineHeight={1.35}
+                font={MONO_FONT_URL}
+                color="#2b2016"
+                colorRanges={colorRanges}
+                anchorX="center"
+                anchorY="middle"
+                textAlign="left"
+                whiteSpace="nowrap"
+            >
+                {frame.code}
+            </Text>
         </group>
     );
 };
@@ -379,11 +453,16 @@ const CorridorDecorations = ({ segmentLength, zOffset, corridorWidth = 4, corrid
             height: 2.5 / 1.785,     // Legacy ratio 3200x1792
             y: 0.3,                  // Wysokość na ścianie
             id: 'frame-1',
-            // Custom setup for "rysuneknaobraz1.png"
-            image: '/textures/corridor/rysuneknaobraz1.webp',
-            imageWidth: 1.1,
-            imageHeight: 1.1,
             offsetFromWall: 0.1, // Przesunięcie bliżej środka korytarza (0.1 unit)
+            codeTitle: 'about.js',
+            code: [
+                'const pranav = {',
+                '  role: "Full-Stack Developer",',
+                '  stack: ["Next.js", "Node", "AWS"],',
+                '  cgpa: 9.54,',
+                '  coffee: Infinity,',
+                '};',
+            ].join('\n'),
         },
         {
             z: zOffset - 25,         // Między Gallery a Studio (relZ -20 do -30)
@@ -392,10 +471,15 @@ const CorridorDecorations = ({ segmentLength, zOffset, corridorWidth = 4, corrid
             height: 2.5 / 1.785,
             y: 0.2,
             id: 'frame-2',
-            image: '/textures/corridor/rysuneknaobrazek3.webp',
-            imageWidth: 1.7,
-            imageHeight: 1,
-            offsetFromWall: 0.1
+            offsetFromWall: 0.1,
+            codeTitle: 'terminal',
+            code: [
+                '$ git log --oneline',
+                'a91f2c3 feat: Vanvitrak MCP chatbot',
+                '7c0e1b4 feat: Content Genie credits',
+                '3be94d2 deploy: LMS on AWS + Vercel',
+                'f02a6c1 chore: SIH 2024 dashboards',
+            ].join('\n'),
         },
         {
             z: zOffset - 40,         // Między Studio a About (relZ -34 do -46)
@@ -404,11 +488,16 @@ const CorridorDecorations = ({ segmentLength, zOffset, corridorWidth = 4, corrid
             height: 2.5 / 1.785,
             y: 0.25,
             id: 'frame-3',
-            signature: "Empty canvas!\nWant your art here?\nContact me!",
-            signatureX: 0,
-            signatureY: 0,
-            signatureSize: 0.12,
-            signatureColor: '#3d3226'
+            codeTitle: 'GET /api/pranav/skills',
+            code: [
+                '200 OK',
+                '{',
+                '  "frontend": ["React", "Next.js"],',
+                '  "backend": ["Node", "Express"],',
+                '  "db": ["Postgres", "MongoDB"],',
+                '  "cloud": ["AWS", "Docker"]',
+                '}',
+            ].join('\n'),
         },
         {
             z: zOffset - 55,         // Między About a Connect (relZ -50 do -60)
@@ -417,11 +506,14 @@ const CorridorDecorations = ({ segmentLength, zOffset, corridorWidth = 4, corrid
             height: 2.5 / 1.785,
             y: 0.35,
             id: 'frame-4',
-            signature: "Empty canvas!\nWant your art here?\nContact me!",
-            signatureX: 0,
-            signatureY: 0,
-            signatureSize: 0.12,
-            signatureColor: '#3d3226'
+            codeTitle: 'motto.js',
+            code: [
+                'while (alive) {',
+                '  learn();',
+                '  build();',
+                '  ship();',
+                '}',
+            ].join('\n'),
         },
     ], [zOffset]);
 

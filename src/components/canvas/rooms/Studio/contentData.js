@@ -70,40 +70,40 @@ const SHAPE_TEXTURES = {
 // Skills pulled directly from the resume, grouped by category.
 const RAW_CONTENT_DATA = [
     // ============ Languages ============
-    { id: 'lang-c', platform: 'languages', title: 'C', description: 'Systems-level programming fundamentals.', date: '2023-01-01' },
-    { id: 'lang-cpp', platform: 'languages', title: 'C++', description: 'Data structures, algorithms, and competitive programming.', date: '2023-01-01' },
-    { id: 'lang-java', platform: 'languages', title: 'Java', description: 'Object-oriented programming and backend fundamentals.', date: '2023-01-01' },
-    { id: 'lang-js', platform: 'languages', title: 'JavaScript', description: 'Core language behind all of my full-stack projects.', date: '2023-01-01' },
-    { id: 'lang-ts', platform: 'languages', title: 'TypeScript', description: 'Used for type-safe apps like Content Genie.', date: '2023-01-01' },
-    { id: 'lang-py', platform: 'languages', title: 'Python', description: 'Used for AI/remote-sensing pipelines in Vanvitrak.', date: '2023-01-01' },
+    { id: 'lang-c', platform: 'languages', title: 'C', description: 'Systems-level programming fundamentals.' },
+    { id: 'lang-cpp', platform: 'languages', title: 'C++', description: 'Data structures, algorithms, and competitive programming.' },
+    { id: 'lang-java', platform: 'languages', title: 'Java', description: 'Object-oriented programming and backend fundamentals.' },
+    { id: 'lang-js', platform: 'languages', title: 'JavaScript', description: 'Core language behind all of my full-stack projects.' },
+    { id: 'lang-ts', platform: 'languages', title: 'TypeScript', description: 'Used for type-safe apps like Content Genie.' },
+    { id: 'lang-py', platform: 'languages', title: 'Python', description: 'Used for AI/remote-sensing pipelines in Vanvitrak.' },
 
     // ============ Frontend ============
-    { id: 'fe-react', platform: 'frontend', title: 'React.js', description: 'Building interactive UIs and dashboards.', date: '2023-01-01' },
-    { id: 'fe-next', platform: 'frontend', title: 'Next.js', description: 'Full-stack React framework used in Vanvitrak, Content Genie, and the LMS.', date: '2023-01-01' },
-    { id: 'fe-html', platform: 'frontend', title: 'HTML', description: 'Semantic markup fundamentals.', date: '2023-01-01' },
-    { id: 'fe-css', platform: 'frontend', title: 'CSS', description: 'Styling and layout fundamentals.', date: '2023-01-01' },
-    { id: 'fe-tailwind', platform: 'frontend', title: 'Tailwind CSS', description: 'Utility-first styling used across recent projects.', date: '2023-01-01' },
+    { id: 'fe-react', platform: 'frontend', title: 'React.js', description: 'Building interactive UIs and dashboards.' },
+    { id: 'fe-next', platform: 'frontend', title: 'Next.js', description: 'Full-stack React framework used in Vanvitrak, Content Genie, and the LMS.' },
+    { id: 'fe-html', platform: 'frontend', title: 'HTML', description: 'Semantic markup fundamentals.' },
+    { id: 'fe-css', platform: 'frontend', title: 'CSS', description: 'Styling and layout fundamentals.' },
+    { id: 'fe-tailwind', platform: 'frontend', title: 'Tailwind CSS', description: 'Utility-first styling used across recent projects.' },
 
     // ============ Backend ============
-    { id: 'be-node', platform: 'backend', title: 'Node.js', description: 'Backend runtime for Express-based APIs.', date: '2023-01-01' },
-    { id: 'be-express', platform: 'backend', title: 'Express.js', description: 'REST API framework used in Vanvitrak and Socioscrape.', date: '2023-01-01' },
-    { id: 'be-rest', platform: 'backend', title: 'REST APIs', description: 'Designing and consuming RESTful services.', date: '2023-01-01' },
+    { id: 'be-node', platform: 'backend', title: 'Node.js', description: 'Backend runtime for Express-based APIs.' },
+    { id: 'be-express', platform: 'backend', title: 'Express.js', description: 'REST API framework used in Vanvitrak and Socioscrape.' },
+    { id: 'be-rest', platform: 'backend', title: 'REST APIs', description: 'Designing and consuming RESTful services.' },
 
     // ============ Databases ============
-    { id: 'db-postgres', platform: 'databases', title: 'PostgreSQL', description: 'Relational storage with Drizzle ORM in Content Genie.', date: '2023-01-01' },
-    { id: 'db-mongo', platform: 'databases', title: 'MongoDB', description: 'Document storage for Vanvitrak, including blockchain-verified records.', date: '2023-01-01' },
-    { id: 'db-dynamo', platform: 'databases', title: 'DynamoDB', description: 'AWS-managed NoSQL database.', date: '2023-01-01' },
-    { id: 'db-mysql', platform: 'databases', title: 'MySQL', description: 'Relational schema design for Socioscrape.', date: '2023-01-01' },
+    { id: 'db-postgres', platform: 'databases', title: 'PostgreSQL', description: 'Relational storage with Drizzle ORM in Content Genie.' },
+    { id: 'db-mongo', platform: 'databases', title: 'MongoDB', description: 'Document storage for Vanvitrak, including blockchain-verified records.' },
+    { id: 'db-dynamo', platform: 'databases', title: 'DynamoDB', description: 'AWS-managed NoSQL database.' },
+    { id: 'db-mysql', platform: 'databases', title: 'MySQL', description: 'Relational schema design for Socioscrape.' },
 
     // ============ Cloud & DevOps ============
-    { id: 'cloud-aws', platform: 'cloud', title: 'AWS', description: 'S3, Lambda, API Gateway, and CloudFront for the Enterprise LMS backend.', date: '2023-01-01' },
-    { id: 'cloud-docker', platform: 'cloud', title: 'Docker', description: 'Containerizing backend services for deployment.', date: '2023-01-01' },
-    { id: 'cloud-vercel', platform: 'cloud', title: 'Vercel', description: 'Frontend deployment for Next.js apps.', date: '2023-01-01' },
+    { id: 'cloud-aws', platform: 'cloud', title: 'AWS', description: 'S3, Lambda, API Gateway, and CloudFront for the Enterprise LMS backend.' },
+    { id: 'cloud-docker', platform: 'cloud', title: 'Docker', description: 'Containerizing backend services for deployment.' },
+    { id: 'cloud-vercel', platform: 'cloud', title: 'Vercel', description: 'Frontend deployment for Next.js apps.' },
 
     // ============ Tools ============
-    { id: 'tool-git', platform: 'tools', title: 'Git & GitHub', description: 'Version control across all projects.', date: '2023-01-01' },
-    { id: 'tool-postman', platform: 'tools', title: 'Postman', description: 'API testing and documentation.', date: '2023-01-01' },
-    { id: 'tool-figma', platform: 'tools', title: 'Figma', description: 'UI/UX design and prototyping.', date: '2023-01-01' },
+    { id: 'tool-git', platform: 'tools', title: 'Git & GitHub', description: 'Version control across all projects.' },
+    { id: 'tool-postman', platform: 'tools', title: 'Postman', description: 'API testing and documentation.' },
+    { id: 'tool-figma', platform: 'tools', title: 'Figma', description: 'UI/UX design and prototyping.' },
 ];
 
 export const CONTENT_DATA = RAW_CONTENT_DATA.map((item) => {

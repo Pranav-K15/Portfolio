@@ -11,10 +11,10 @@ import '../../styles/NavigationUI.scss';
 // Room data for the map - positions are percentages on the map image
 // These positions correspond to the visual elements on the map
 const ROOMS = [
-    { id: 'about', label: 'About', x: 43, y: 38 },      // Paper airplane (left side)
-    { id: 'gallery', label: 'Gallery', x: 43, y: 72 },  // City buildings (bottom left)
+    { id: 'about', label: 'About Me', x: 43, y: 38 },      // Paper airplane (left side)
+    { id: 'gallery', label: 'Projects', x: 43, y: 72 },  // City buildings (bottom left)
     { id: 'contact', label: 'Contact', x: 57, y: 25 },  // Pier/dock (top right)
-    { id: 'studio', label: 'Studio', x: 57, y: 55 },    // Monitors stack (right side)
+    { id: 'studio', label: 'Skills', x: 57, y: 55 },    // Monitors stack (right side)
 ];
 
 // Pin starting position - the dashed circle at the bottom of the tower
@@ -382,10 +382,10 @@ const NavigationUI = () => {
                             />
 
                             {/* Permanent Map Text Labels */}
-                            <div className="map-room-label about">ABOUT</div>
-                            <div className="map-room-label gallery">THE<br />GALLERY</div>
+                            <div className="map-room-label about">ABOUT<br />ME</div>
+                            <div className="map-room-label gallery">PROJECTS</div>
                             <div className="map-room-label contact">CONTACT</div>
-                            <div className="map-room-label studio">THE<br />STUDIO</div>
+                            <div className="map-room-label studio">SKILLS</div>
 
                             {/* Pin slot markers - 4 locations */}
                             {ROOMS.map((room) => (

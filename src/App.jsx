@@ -12,15 +12,18 @@ import { SceneProvider, useScene } from './context/SceneContext';
 import NavigationUI from './components/ui/NavigationUI';
 import GlobalOverlay from './components/ui/GlobalOverlay';
 import ScreenReaderOverlay from './components/ui/ScreenReaderOverlay';
+import DevOS from './components/ui/DevOS';
 import { useDocumentMeta } from './hooks/useDocumentMeta';
 import posthog from 'posthog-js';
 import { loadSanityData } from './hooks/useSanityData';
 
-// Initialize PostHog
-posthog.init(import.meta.env.VITE_POSTHOG_KEY, {
-  api_host: import.meta.env.VITE_POSTHOG_HOST,
-  person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
-});
+// Analytics only runs when a PostHog key is configured
+if (import.meta.env.VITE_POSTHOG_KEY) {
+  posthog.init(import.meta.env.VITE_POSTHOG_KEY, {
+    api_host: import.meta.env.VITE_POSTHOG_HOST,
+    person_profiles: 'identified_only',
+  });
+}
 
 // Lazy load the heavy 3D experience
 const Experience = lazy(() => import('./components/canvas/Experience'));
@@ -111,6 +114,16 @@ const PaperSceneBackground = () => {
   return null;
 };
 
+// When the render loop resumes after a pause, consume the paused time so the
+// first frame doesn't get a huge delta (which would make animations jump).
+const ClockResync = ({ frozen }) => {
+  const clock = useThree((state) => state.clock);
+  useLayoutEffect(() => {
+    if (!frozen) clock.getDelta();
+  }, [frozen, clock]);
+  return null;
+};
+
 // Bridge component to use hooks inside SceneProvider
 // Handles dynamic meta tags + deep link auto-teleport
 function DocumentMetaBridge() {
@@ -133,6 +146,8 @@ function DocumentMetaBridge() {
 function AppContent() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [sceneReady, setSceneReady] = useState(false);
+  // Pauses the 3D render loop while the fullscreen Developer OS covers it
+  const [sceneFrozen, setSceneFrozen] = useState(false);
 
   // Use Performance Context
   const { settings, downgradeTier, tier } = usePerformance();
@@ -157,6 +172,7 @@ function AppContent() {
           {/* Full screen 3D Canvas */}
           <div className="canvas-wrapper">
             <Canvas
+              frameloop={sceneFrozen ? 'never' : 'always'}
               camera={{
                 position: [0, 0.2, 28],
                 fov: 60,
@@ -173,6 +189,7 @@ function AppContent() {
               dpr={settings.dpr}
               shadows={settings.shadows}
             >
+              <ClockResync frozen={sceneFrozen} />
               <color attach="background" args={['#faf3e6']} />
               <fog attach="fog" args={['#faf3e6', 15, 50]} />
 
@@ -204,6 +221,7 @@ function AppContent() {
               <GlobalOverlay />
               <PaperTransition />
               <ScreenReaderOverlay />
+              <DevOS onSceneFreeze={setSceneFrozen} />
             </>
           )}
 

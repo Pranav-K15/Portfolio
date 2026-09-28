@@ -7,7 +7,7 @@ import { useScene } from '../../../../context/SceneContext';
 import { useAchievements } from '../../../../context/AchievementsContext';
 import { TextureLoader } from 'three';
 import FloatingCodeParticles from './FloatingCodeParticles';
-import { PositionalAudio } from '@react-three/drei';
+import { PositionalAudio, Text } from '@react-three/drei';
 import { useAudio } from '../../../../context/AudioManager';
 import { useStudioContent } from '../../../../hooks/useSanityData';
 import '../../shaders/RevealMaterial';
@@ -859,9 +859,56 @@ const MonitorBlock = memo(({ item, meshRef, isSelected, onMonitorClick, disabled
                     }
                 })}
             </mesh>
+
+            <ScreenLabel item={item} shape={deviceShape} />
         </group>
     );
 });
+
+// Screen area of each device's front artwork, as fractions of the face size
+const SCREEN_AREA = {
+    monitor: { x: 0, y: 0.02, w: 0.8 },
+    tv: { x: -0.085, y: 0.05, w: 0.55 },
+    phone: { x: 0, y: 0, w: 0.8 },
+};
+
+// Skill name + category written on the device's screen, like a line of code
+const ScreenLabel = ({ item, shape }) => {
+    const area = SCREEN_AREA[shape] || SCREEN_AREA.monitor;
+    const screenWidth = item.width * area.w;
+    const titleSize = Math.min(0.2, screenWidth / 5.5);
+    const category = (item.platformConfig?.label || '').toLowerCase();
+
+    return (
+        <group position={[item.width * area.x, item.height * area.y, item.depth / 2 + 0.006]}>
+            <Text
+                font="/fonts/Kalam-Bold.ttf"
+                fontSize={titleSize}
+                maxWidth={screenWidth}
+                textAlign="center"
+                anchorX="center"
+                anchorY="bottom"
+                color="#2b2016"
+            >
+                {item.title}
+            </Text>
+            {category && (
+                <Text
+                    font="/fonts/Kalam-Regular.ttf"
+                    position={[0, -0.03, 0]}
+                    fontSize={titleSize * 0.55}
+                    maxWidth={screenWidth}
+                    textAlign="center"
+                    anchorX="center"
+                    anchorY="top"
+                    color="#6f6248"
+                >
+                    {`// ${category}`}
+                </Text>
+            )}
+        </group>
+    );
+};
 
 export default StudioRoom;
 

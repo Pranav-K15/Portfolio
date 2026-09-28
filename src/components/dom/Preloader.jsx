@@ -85,15 +85,37 @@ const percentageStyle = {
   transform: 'translateY(-50%)',
   textAlign: 'center',
   zIndex: 20,
-  fontFamily: "'Inter', sans-serif",
+  fontFamily: "'Permanent Marker', cursive",
   fontSize: '2rem',
-  fontWeight: 'bold',
+  color: '#2b2016',
   mixBlendMode: 'multiply',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   overflow: 'visible'
 };
+
+const nameStyle = {
+  position: 'absolute',
+  top: 'calc(50% + 95px)',
+  left: '0',
+  width: '100%',
+  textAlign: 'center',
+  zIndex: 20,
+  color: '#2b2016',
+  pointerEvents: 'none',
+};
+
+const NameTag = () => (
+  <div style={nameStyle}>
+    <div style={{ fontFamily: "'Permanent Marker', cursive", fontSize: '1.6rem', letterSpacing: '0.06em' }}>
+      PRANAV KAD
+    </div>
+    <div style={{ fontFamily: "'Kalam', cursive", fontSize: '1rem', color: '#6f6248' }}>
+      sketching the portfolio…
+    </div>
+  </div>
+);
 
 const Preloader = ({ onComplete, ready }) => {
   const [isDone, setIsDone] = useState(false);
@@ -371,6 +393,7 @@ const Preloader = ({ onComplete, ready }) => {
           <span ref={textLeftRef}>{percentageText}</span>
           <RingLoader />
         </div>
+        <NameTag />
 
         {/* SVG is now INSIDE the clipped half */}
         <TearLineSVG pathRef={pathLeftRef} svgPathData={svgPathData} pathLength={pathLength} strokeDashoffset={strokeDashoffset} />
@@ -387,6 +410,7 @@ const Preloader = ({ onComplete, ready }) => {
           <span ref={textRightRef}>{percentageText}</span>
           <RingLoader />
         </div>
+        <NameTag />
 
         {/* SVG is now INSIDE the clipped half */}
         <TearLineSVG pathRef={pathRightRef} svgPathData={svgPathData} pathLength={pathLength} strokeDashoffset={strokeDashoffset} />

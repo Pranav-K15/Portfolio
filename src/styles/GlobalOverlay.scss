@@ -1,15 +1,15 @@
 // GlobalOverlay Styles - Torn Paper Aesthetic
 
 @font-face {
-    font-family: 'Cabin Sketch';
-    src: url('/fonts/CabinSketch-Bold.ttf') format('truetype');
+    font-family: 'Kalam';
+    src: url('/fonts/Kalam-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Cabin Sketch';
-    src: url('/fonts/CabinSketch-Regular.ttf') format('truetype');
+    font-family: 'Kalam';
+    src: url('/fonts/Kalam-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
@@ -22,8 +22,8 @@
 }
 
 @font-face {
-    font-family: 'Rubik Scribble';
-    src: url('/fonts/RubikScribble-Regular.ttf') format('truetype');
+    font-family: 'Permanent Marker';
+    src: url('/fonts/PermanentMarker-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
@@ -135,7 +135,7 @@
         justify-content: center;
         background: #f0e6d2;
         color: #666;
-        font-family: 'Rubik Scribble', cursive;
+        font-family: 'Permanent Marker', cursive;
         font-weight: 700;
         font-size: 1.5rem;
     }
@@ -154,7 +154,7 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 1.2rem;
-    font-family: 'Cabin Sketch', cursive;
+    font-family: 'Kalam', cursive;
     transition: all 0.2s;
     cursor: pointer;
     margin-top: auto;

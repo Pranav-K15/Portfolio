@@ -60,7 +60,7 @@ src/
 - **Hand-drawn / Sketchy** - Everything looks like pencil drawings
 - **Black & White** with subtle gray tones
 - **Paper textures** - Crumpled, torn edges
-- **Fonts**: `CabinSketch-Regular.ttf`, `CabinSketch-Bold.ttf`
+- **Fonts**: `Kalam-Regular.ttf`, `Kalam-Bold.ttf`
 
 ### Textures Location
 ```
@@ -162,7 +162,7 @@ const texture = useTexture('/textures/example.webp');
 ```jsx
 import { Text } from '@react-three/drei';
 <Text
-    font="/fonts/CabinSketch-Regular.ttf"
+    font="/fonts/Kalam-Regular.ttf"
     fontSize={0.05}
     color="#333333"
 >

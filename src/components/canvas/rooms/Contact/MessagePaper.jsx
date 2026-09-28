@@ -6,7 +6,7 @@ import * as THREE from 'three';
 
 const PAPER_WIDTH = 1.51; // Legacy ratio 1197/1340
 const PAPER_HEIGHT = 1.7;
-const FONT_PATH = '/fonts/CabinSketch-Regular.ttf';
+const FONT_PATH = '/fonts/Kalam-Regular.ttf';
 
 // Helper: Interactive Text Field with Smooth Animation and Invisible Hitbox
 const InteractiveTextField = ({

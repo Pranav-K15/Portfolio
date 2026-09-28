@@ -132,7 +132,7 @@ const AwardButton = ({ onClick, texture, paintedTexture, width, height, position
                 color="#2b2016"
                 anchorX="center"
                 anchorY="middle"
-                font="/fonts/CabinSketch-Bold.ttf"
+                font="/fonts/Kalam-Bold.ttf"
             >
                 VIEW
             </Text>
@@ -342,7 +342,7 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
                 color="#2b2016"
                 anchorX="center"
                 anchorY="middle"
-                font="/fonts/RubikScribble-Regular.ttf"
+                font="/fonts/PermanentMarker-Regular.ttf"
             >
                 PRANAV KAD
             </Text>
@@ -355,7 +355,7 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
                 color="#5c4f3d"
                 anchorX="center"
                 anchorY="middle"
-                font="/fonts/CabinSketch-Regular.ttf"
+                font="/fonts/Kalam-Regular.ttf"
             >
                 (Full-Stack Developer)
             </Text>
@@ -376,7 +376,7 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
                     color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
-                    font="/fonts/RubikScribble-Regular.ttf"
+                    font="/fonts/PermanentMarker-Regular.ttf"
                 >
                     PK
                 </Text>
@@ -390,7 +390,7 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
                 color="#63563f"
                 anchorX="center"
                 anchorY="middle"
-                font="/fonts/CabinSketch-Regular.ttf"
+                font="/fonts/Kalam-Regular.ttf"
                 fontStyle="italic"
             >
                 "Building full-stack products
@@ -404,7 +404,7 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
                 color="#63563f"
                 anchorX="center"
                 anchorY="middle"
-                font="/fonts/CabinSketch-Regular.ttf"
+                font="/fonts/Kalam-Regular.ttf"
                 fontStyle="italic"
             >
                 from land records to learning platforms"
@@ -611,7 +611,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                 color="#2b2016"
                 anchorX="center"
                 anchorY="middle"
-                font="/fonts/RubikScribble-Regular.ttf"
+                font="/fonts/PermanentMarker-Regular.ttf"
             >
                 AWARDS
             </Text>
@@ -661,7 +661,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                     color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
-                    font="/fonts/CabinSketch-Bold.ttf"
+                    font="/fonts/Kalam-Bold.ttf"
                 >
                     HACKATHONS
                 </Text>
@@ -672,7 +672,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                     color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
-                    font="/fonts/CabinSketch-Bold.ttf"
+                    font="/fonts/Kalam-Bold.ttf"
                 >
                     {awardsData.sotd.items.length}
                 </Text>
@@ -723,7 +723,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                     color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
-                    font="/fonts/CabinSketch-Bold.ttf"
+                    font="/fonts/Kalam-Bold.ttf"
                 >
                     COMPETITIONS
                 </Text>
@@ -734,7 +734,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                     color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
-                    font="/fonts/CabinSketch-Bold.ttf"
+                    font="/fonts/Kalam-Bold.ttf"
                 >
                     {awardsData.sotm.items.length}
                 </Text>
@@ -783,7 +783,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                     color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
-                    font="/fonts/CabinSketch-Bold.ttf"
+                    font="/fonts/Kalam-Bold.ttf"
                 >
                     OTHER
                 </Text>
@@ -794,7 +794,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                     color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
-                    font="/fonts/CabinSketch-Bold.ttf"
+                    font="/fonts/Kalam-Bold.ttf"
                 >
                     {awardsData.other.items.length}
                 </Text>
@@ -888,7 +888,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                 color="#2b2016"
                 anchorX="center"
                 anchorY="middle"
-                font="/fonts/RubikScribble-Regular.ttf"
+                font="/fonts/PermanentMarker-Regular.ttf"
             >
                 JOURNEY
             </Text>
@@ -900,7 +900,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                 color="#63563f"
                 anchorX="center"
                 anchorY="middle"
-                font="/fonts/CabinSketch-Regular.ttf"
+                font="/fonts/Kalam-Regular.ttf"
             >
                 My path so far...
             </Text>
@@ -921,7 +921,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                     color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
-                    font="/fonts/CabinSketch-Bold.ttf"
+                    font="/fonts/Kalam-Bold.ttf"
                 >
                     EDUCATION
                 </Text>
@@ -933,7 +933,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                     color="#3d3226"
                     anchorX="center"
                     anchorY="middle"
-                    font="/fonts/CabinSketch-Regular.ttf"
+                    font="/fonts/Kalam-Regular.ttf"
                 >
                     B.E., MMCOE (SPPU)
                 </Text>
@@ -943,7 +943,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                     color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
-                    font="/fonts/CabinSketch-Bold.ttf"
+                    font="/fonts/Kalam-Bold.ttf"
                 >
                     2023 - 2027
                 </Text>
@@ -953,7 +953,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                     color="#63563f"
                     anchorX="center"
                     anchorY="middle"
-                    font="/fonts/CabinSketch-Regular.ttf"
+                    font="/fonts/Kalam-Regular.ttf"
                 >
                     CGPA: 9.54/10
                 </Text>
@@ -977,7 +977,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                     color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
-                    font="/fonts/CabinSketch-Bold.ttf"
+                    font="/fonts/Kalam-Bold.ttf"
                 >
                     FULL-STACK DEV
                 </Text>
@@ -989,7 +989,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                     color="#3d3226"
                     anchorX="center"
                     anchorY="middle"
-                    font="/fonts/CabinSketch-Regular.ttf"
+                    font="/fonts/Kalam-Regular.ttf"
                 >
                     Building full-stack & AI projects
                 </Text>
@@ -999,7 +999,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                     color="#2b2016"
                     anchorX="center"
                     anchorY="middle"
-                    font="/fonts/CabinSketch-Bold.ttf"
+                    font="/fonts/Kalam-Bold.ttf"
                 >
                     2023 - NOW
                 </Text>
@@ -1348,7 +1348,7 @@ const SkillBalloon = ({ config, revealFactorRef, spreadFactorRef, timeRef }) => 
                         color="#2b2016"
                         anchorX="center"
                         anchorY="middle"
-                        font="/fonts/RubikScribble-Regular.ttf"
+                        font="/fonts/PermanentMarker-Regular.ttf"
                         fillOpacity={0}
                         outlineWidth={0.02}
                         outlineColor="#faf3e6"
@@ -1437,7 +1437,7 @@ const SkillsMilestone = ({ z, scrollProgressRef }) => {
                 color="#2b2016"
                 anchorX="center"
                 anchorY="middle"
-                font="/fonts/RubikScribble-Regular.ttf"
+                font="/fonts/PermanentMarker-Regular.ttf"
             >
                 SKILLS
             </Text>
@@ -1449,7 +1449,7 @@ const SkillsMilestone = ({ z, scrollProgressRef }) => {
                 color="#63563f"
                 anchorX="center"
                 anchorY="middle"
-                font="/fonts/CabinSketch-Regular.ttf"
+                font="/fonts/Kalam-Regular.ttf"
             >
                 Technologies I love working with
             </Text>

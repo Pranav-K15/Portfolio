@@ -3,22 +3,15 @@ import { useFrame, useThree } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Local fonts for sketch-style typography (TTF format required by troika)
-const RUBIK_SCRIBBLE_URL = '/fonts/RubikScribble-Regular.ttf';
-const CABIN_SKETCH_URL = '/fonts/CabinSketch-Regular.ttf';
+// Local fonts (TTF format required by troika)
+const TITLE_FONT_URL = '/fonts/PermanentMarker-Regular.ttf';
+const BODY_FONT_URL = '/fonts/Kalam-Regular.ttf';
 
-// Global flag - draw animation only happens ONCE per page load
-let hasPlayedDrawAnimation = false;
+const INK = '#2b2016';
 
 /**
- * HeroText Component - Hand-drawn Style with Sketch Fonts
- * 
- * WOW Effects for Awwwards SOTD:
- * - ITOM in Rubik Scribble font (splits into letters during scroll)
- * - Creative developer in Cabin Sketch font (also splits)
- * - Floating micro-animations
- * - Parallax split effect
- * - RESPONSIVE: scales down on mobile
+ * HeroText - name in marker ink with a tagline underneath.
+ * Letters and tagline words split apart as the camera walks through them.
  */
 const HeroText = ({ position = [0, 0.3, 0] }) => {
     const groupRef = useRef();
@@ -54,18 +47,23 @@ const HeroText = ({ position = [0, 0.3, 0] }) => {
     // Pre-allocate Vector3 to avoid per-frame garbage collection
     const worldPosVec = useRef(new THREE.Vector3());
 
-    // Letter positions for "PK" split effect
-    const letters = useMemo(() => [
-        { char: 'P', baseX: -0.5, splitDir: -1.4, delay: 0 },
-        { char: 'K', baseX: 0.5, splitDir: 1.4, delay: 0 },
-    ], []);
+    // Letter positions for "PRANAV" split effect
+    const letters = useMemo(() => {
+        const word = 'PRANAV';
+        const spacing = 0.42;
+        const start = -((word.length - 1) * spacing) / 2;
+        return word.split('').map((char, i) => {
+            const baseX = start + i * spacing;
+            return { key: `${char}-${i}`, char, baseX, splitDir: baseX * 1.6 };
+        });
+    }, []);
 
     // Tagline words for split effect
     const taglineWords = useMemo(() => [
-        { text: '<', baseX: -0.85, splitDir: -1.5, delay: 0 },
-        { text: 'full-stack', baseX: -0.4, splitDir: -0.8, delay: 0 },
-        { text: 'developer', baseX: 0.4, splitDir: 0.8, delay: 0 },
-        { text: '/>', baseX: 0.85, splitDir: 1.5, delay: 0 },
+        { text: '—', baseX: -0.95, splitDir: -1.5 },
+        { text: 'full-stack', baseX: -0.42, splitDir: -0.8 },
+        { text: 'developer', baseX: 0.42, splitDir: 0.8 },
+        { text: '—', baseX: 0.95, splitDir: 1.5 },
     ], []);
 
     // Animation loop
@@ -95,7 +93,7 @@ const HeroText = ({ position = [0, 0.3, 0] }) => {
 
         splitAmount.current = THREE.MathUtils.lerp(splitAmount.current, targetSplit.current, 0.08);
 
-        // Apply split to each letter of ITOM
+        // Apply split to each letter of the name
         letterRefs.current.forEach((ref, i) => {
             if (ref) {
                 // Ensure opacity is 1
@@ -129,17 +127,14 @@ const HeroText = ({ position = [0, 0.3, 0] }) => {
 
     return (
         <group ref={groupRef} position={position} scale={[scale, scale, 1]}>
-            {/* ITOM Letters - Rubik Scribble font with fade-in animation */}
             {letters.map((letter, i) => (
                 <Text
-                    key={letter.char}
+                    key={letter.key}
                     ref={(el) => (letterRefs.current[i] = el)}
                     position={[letter.baseX, 0.2, 0]}
-                    fontSize={0.9}
-                    font={RUBIK_SCRIBBLE_URL}
-                    color="#faf3e6"
-                    outlineWidth={0.012}
-                    outlineColor="#2b2016"
+                    fontSize={0.62}
+                    font={TITLE_FONT_URL}
+                    color={INK}
                     anchorX="center"
                     anchorY="middle"
                     letterSpacing={0}
@@ -148,50 +143,48 @@ const HeroText = ({ position = [0, 0.3, 0] }) => {
                 </Text>
             ))}
 
-            {/* Tagline words - Cabin Sketch font with fade-in animation */}
             {taglineWords.map((word, i) => (
                 <Text
-                    key={word.text}
+                    key={`${word.text}-${i}`}
                     ref={(el) => (taglineRefs.current[i] = el)}
                     position={[word.baseX, -0.55, 0.3]}
-                    fontSize={0.16}
-                    font={CABIN_SKETCH_URL}
+                    fontSize={0.17}
+                    font={BODY_FONT_URL}
                     color="#63563f"
                     anchorX="center"
                     anchorY="middle"
-                    letterSpacing={0.04}
+                    letterSpacing={0.02}
                 >
                     {word.text}
                 </Text>
             ))}
 
-            {/* Small decorative doodles around title */}
-            <SmallStar position={[-1.2, 0.55, 0]} scale={0.07} />
-            <SmallStar position={[1.25, 0.45, 0]} scale={0.05} />
-            <SmallStar position={[-1.0, -0.6, 0]} scale={0.04} />
-            <SmallStar position={[1.1, -0.55, 0]} scale={0.035} />
+            <Text
+                position={[0, -0.72, 0.3]}
+                fontSize={0.1}
+                font={BODY_FONT_URL}
+                color="#6f6248"
+                anchorX="center"
+                anchorY="middle"
+                letterSpacing={0.03}
+            >
+                Next.js · Node.js · Express · PostgreSQL · MongoDB · AWS
+            </Text>
+
+            {/* Hand-drawn underline beneath the name */}
+            <mesh position={[0, -0.18, 0]} rotation={[0, 0, -0.025]}>
+                <planeGeometry args={[2.3, 0.022]} />
+                <meshBasicMaterial color={INK} transparent opacity={0.75} side={2} />
+            </mesh>
+            <mesh position={[0.15, -0.23, 0]} rotation={[0, 0, 0.02]}>
+                <planeGeometry args={[1.7, 0.014]} />
+                <meshBasicMaterial color={INK} transparent opacity={0.45} side={2} />
+            </mesh>
         </group>
     );
 };
 
 // Easing function
 const easeOutQuad = (t) => t * (2 - t);
-
-/**
- * Small decorative star - STATIC to avoid useFrame overhead
- * Parent HeroText already handles all animations
- */
-const SmallStar = ({ position, scale = 0.1 }) => {
-    return (
-        <group position={position} scale={scale}>
-            {[0, 1, 2, 3].map((i) => (
-                <mesh key={i} rotation={[0, 0, (i * Math.PI) / 4]}>
-                    <planeGeometry args={[1, 0.12]} />
-                    <meshBasicMaterial color="#3d3226" transparent opacity={0.6} side={2} />
-                </mesh>
-            ))}
-        </group>
-    );
-};
 
 export default HeroText;

@@ -308,7 +308,7 @@ const ContentCard = ({ content, isOpen, onClose, isMobile }) => {
                         display: 'flex',
                         flexDirection: 'column',
                         gap: '1.2rem',
-                        fontFamily: "'Cabin Sketch', cursive", // Hand-drawn vibe
+                        fontFamily: "'Kalam', cursive", // Hand-drawn vibe
                         pointerEvents: 'auto', // Re-enable clicks for the card
                         ...cardStyle,
                         // Override styles for grid layout to be centered and wider
@@ -389,7 +389,7 @@ const ContentCard = ({ content, isOpen, onClose, isMobile }) => {
                                 margin: 0,
                                 lineHeight: 1.1,
                                 fontWeight: 800,
-                                fontFamily: "'Rubik Scribble', cursive", // Clean, bold
+                                fontFamily: "'Permanent Marker', cursive", // Clean, bold
                             }}>
                                 {content.title}
                             </h2>
@@ -465,10 +465,10 @@ const ContentCard = ({ content, isOpen, onClose, isMobile }) => {
                                             />
                                         </div>
                                         <div style={{ textAlign: 'center' }}>
-                                            <h4 style={{ margin: '0 0 0.4rem 0', fontSize: '1.2rem', fontWeight: 700, fontFamily: "'Rubik Scribble', cursive" }}>
+                                            <h4 style={{ margin: '0 0 0.4rem 0', fontSize: '1.2rem', fontWeight: 700, fontFamily: "'Permanent Marker', cursive" }}>
                                                 {item.label}
                                             </h4>
-                                            <span style={{ fontSize: '1.1rem', color: '#5c4f3d', fontFamily: "'Cabin Sketch', cursive", fontWeight: 700 }}>
+                                            <span style={{ fontSize: '1.1rem', color: '#5c4f3d', fontFamily: "'Kalam', cursive", fontWeight: 700 }}>
                                                 {item.date}
                                             </span>
                                         </div>
@@ -497,20 +497,21 @@ const ContentCard = ({ content, isOpen, onClose, isMobile }) => {
                     ) : (
                         /* === LAYOUT: DEFAULT (The Studio Style) === */
                         <>
-                            {/* Meta Info */}
-                            <div style={{
-                                display: 'flex',
-                                flexWrap: 'wrap',
-                                gap: '1rem',
-                                fontSize: '0.8rem',
-                                color: '#666',
-                                borderBottom: '1px dashed #ccc',
-                                paddingBottom: '1rem',
-                                ...getStaggerStyle(200)
-                            }}>
-                                <strong>{content.date}</strong>
-                                {content.views && <span>{content.views} views</span>}
-                            </div>
+                            {/* Meta Info (only when the item has a date) */}
+                            {content.date && (
+                                <div style={{
+                                    display: 'flex',
+                                    flexWrap: 'wrap',
+                                    gap: '1rem',
+                                    fontSize: '0.8rem',
+                                    color: '#6f6248',
+                                    borderBottom: '1px dashed #d9cdb5',
+                                    paddingBottom: '1rem',
+                                    ...getStaggerStyle(200)
+                                }}>
+                                    <strong>{content.date}</strong>
+                                </div>
+                            )}
 
                             {/* Description */}
                             <p 

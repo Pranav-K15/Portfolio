@@ -21,12 +21,12 @@ const ROOM_META = {
         description: 'Learn about Pranav Kad — a Full-Stack Developer studying at MMCOE, SPPU, building full-stack and AI-powered projects.',
     },
     gallery: {
-        path: '/gallery',
+        path: '/projects',
         title: 'Projects — Pranav Kad',
         description: 'Browse the interactive 3D gallery of Pranav Kad\'s projects, including Vanvitrak, Content Genie, and an Enterprise LMS.',
     },
     studio: {
-        path: '/studio',
+        path: '/skills',
         title: 'Skills — Pranav Kad',
         description: 'Explore Pranav Kad\'s technical skills across languages, frontend, backend, databases, and cloud — displayed on floating monitors.',
     },
@@ -41,8 +41,8 @@ const ROOM_META = {
 const PATH_TO_ROOM = {
     '/': null,
     '/about': 'about',
-    '/gallery': 'gallery',
-    '/studio': 'studio',
+    '/projects': 'gallery',
+    '/skills': 'studio',
     '/contact': 'contact',
 };
 

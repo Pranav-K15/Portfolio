@@ -13,6 +13,7 @@ import GalleryClouds from './GalleryClouds';
 import { useAudio } from '../../../../context/AudioManager';
 import { usePaintMaterial } from './usePaintMaterial';
 import { useGalleryProjects } from '../../../../hooks/useSanityData';
+import { PROJECTS } from '../../../../config/profile';
 
 // Reusable Vector3 to avoid allocations in useFrame
 const _tempScale = new THREE.Vector3();
@@ -37,7 +38,6 @@ export const GALLERY_INTERACTION_AUDIO_SETTINGS = {
 // Techs without a matching hand-drawn icon fall back to a plain text chip (see TechStackLogo).
 const TECH_ICON_MAP = {
     'react': { front: '/textures/gallery/reactlogo.webp', painted: '/textures/gallery/reactlogo_painted.webp' },
-    'next.js': { front: '/textures/gallery/reactlogo.webp', painted: '/textures/gallery/reactlogo_painted.webp' },
     'javascript': { front: '/textures/gallery/jslogo.webp', painted: '/textures/gallery/jslogo_painted.webp' },
     'html': { front: '/textures/gallery/htmllogo.webp', painted: '/textures/gallery/htmllogo_painted.webp' },
     'css': { front: '/textures/gallery/csslogo.webp', painted: '/textures/gallery/css3logo_painted.webp' },
@@ -50,44 +50,17 @@ const TECH_ICON_MAP = {
 const GENERIC_FRONT = '/textures/gallery/tylkartki.webp';
 const GENERIC_FRONT_PAINTED = '/textures/gallery/tylkartki_painted.webp';
 
-const FALLBACK_PROJECTS = [
-    {
-        id: 'vanvitrak',
-        title: 'VANVITRAK',
-        front: GENERIC_FRONT,
-        painted: GENERIC_FRONT_PAINTED,
-        url: null,
-        description: 'An AI-powered land records verification system integrating WebGIS, OCR, and satellite data. Includes an MCP-based chatbot for real-time land records and scheme eligibility, a blockchain verification workflow (SHA-256 hashing + Solidity smart contract validation), and an AI remote sensing pipeline for mapping land assets and generating FRA claim polygons.',
-        techStack: ['Next.js', 'Express.js', 'MongoDB', 'Python']
-    },
-    {
-        id: 'content-genie',
-        title: 'CONTENT GENIE',
-        front: GENERIC_FRONT,
-        painted: GENERIC_FRONT_PAINTED,
-        url: null,
-        description: 'An AI-powered web app that generates dynamic content using the Google Gemini API. Features a credit-based payment system, user authentication with Clerk, PostgreSQL storage via Drizzle ORM, and a Tailwind CSS interface.',
-        techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Google Gemini API']
-    },
-    {
-        id: 'lms',
-        title: 'ENTERPRISE LMS',
-        front: GENERIC_FRONT,
-        painted: GENERIC_FRONT_PAINTED,
-        url: null,
-        description: 'A full-stack Learning Management System with course management, video streaming, and user dashboards. Integrated Clerk for authentication and Stripe for payments, deployed with the backend on AWS and frontend on Vercel using Docker for containerization.',
-        techStack: ['Next.js', 'Node.js', 'AWS', 'Docker']
-    },
-    {
-        id: 'socioscrape',
-        title: 'SOCIOSCRAPE',
-        front: GENERIC_FRONT,
-        painted: GENERIC_FRONT_PAINTED,
-        url: null,
-        description: 'A Social Media Forensic Analysis Platform built for Smart India Hackathon 2024. Contributed frontend development and MySQL database design for a social media investigation tool used in legal and forensic case work, including interactive dashboards to visualize investigation data.',
-        techStack: ['JavaScript', 'HTML', 'CSS', 'MySQL', 'Node.js', 'Express.js']
-    },
-];
+const FALLBACK_PROJECTS = PROJECTS.map((p) => ({
+    id: p.id,
+    title: p.title.toUpperCase(),
+    tagline: p.tagline,
+    year: p.year,
+    front: GENERIC_FRONT,
+    painted: GENERIC_FRONT_PAINTED,
+    url: p.url,
+    description: p.cardSummary,
+    techStack: p.stack,
+}));
 
 const PROJECT_COUNT = 10; // Keep the count for the infinite scroll feel
 const GAP = 2.5;
@@ -701,6 +674,9 @@ const ProjectCard = memo(forwardRef(({ index, project, clothespinTexture, curren
     const paperRef = useRef(); // Ref for the moving part (Paper)
     const materialRef = useRef();
     const textRef = useRef(); // Ref for the text that sticks to the paper
+    const taglineTextRef = useRef();
+    const stackTextRef = useRef();
+    const hintTextRef = useRef();
     const buttonGroupRef = useRef(); // Ref for the interactive back button
     const detailsGroupRef = useRef(); // Ref for the project details on the back
     const techStackGroupRef = useRef(); // Ref for the tech stack section on the back
@@ -972,6 +948,9 @@ const ProjectCard = memo(forwardRef(({ index, project, clothespinTexture, curren
                     }
                 };
                 applyOpacity(textRef);
+                applyOpacity(taglineTextRef);
+                applyOpacity(stackTextRef);
+                applyOpacity(hintTextRef);
                 applyOpacity(detailsTextRef1);
                 applyOpacity(detailsTextRef2);
                 applyOpacity(techTextRef);
@@ -980,21 +959,24 @@ const ProjectCard = memo(forwardRef(({ index, project, clothespinTexture, curren
         }
 
         // --- Zrównaj pozycję tekstu Z z animacją zaginania i falowania kartki (PRZÓD) ---
-        if (textRef.current && materialRef.current) {
-            const y = textRef.current.position.y;
+        if (materialRef.current) {
             const uBend = materialRef.current.bend;
             const uWindStrength = materialRef.current.windStrength || 0;
             const uTime = state.clock.getElapsedTime();
-
-            const bendAmount = Math.pow(y, 2.0) * uBend;
             const totalWind = 0.02 + uWindStrength;
-            const flutter = Math.sin(uTime * 2.0 + y * 2.0) * totalWind * (1.0 + Math.abs(uBend * 3.0));
 
-            textRef.current.position.z = bendAmount + flutter + 0.02;
+            // Keep every front-side text glued to the bending/fluttering paper
+            for (const ref of [textRef, taglineTextRef, stackTextRef, hintTextRef]) {
+                if (!ref.current) continue;
+                const y = ref.current.position.y;
+                const bendAmount = Math.pow(y, 2.0) * uBend;
+                const flutter = Math.sin(uTime * 2.0 + y * 2.0) * totalWind * (1.0 + Math.abs(uBend * 3.0));
+                ref.current.position.z = bendAmount + flutter + 0.02;
 
-            // Obrót tekstu by przylegał do krzywizny (pochodna dz/dy)
-            const dz_dy = 2.0 * y * uBend + 2.0 * Math.cos(uTime * 2.0 + y * 2.0) * totalWind * (1.0 + Math.abs(uBend * 3.0));
-            textRef.current.rotation.x = Math.atan(dz_dy);
+                // Obrót tekstu by przylegał do krzywizny (pochodna dz/dy)
+                const dz_dy = 2.0 * y * uBend + 2.0 * Math.cos(uTime * 2.0 + y * 2.0) * totalWind * (1.0 + Math.abs(uBend * 3.0));
+                ref.current.rotation.x = Math.atan(dz_dy);
+            }
         }
 
         // --- Zrównaj pozycję przycisku Z z animacją pleców (TYŁ) ---
@@ -1175,7 +1157,7 @@ const ProjectCard = memo(forwardRef(({ index, project, clothespinTexture, curren
                             position={[0, 0, 0.01]}
                             fontSize={0.11}
                             color={btnHovered ? "#3d3226" : "#1c1c1c"}
-                            font="/fonts/CabinSketch-Bold.ttf"
+                            font="/fonts/Kalam-Bold.ttf"
                             anchorX="center"
                             anchorY="middle"
                             fillOpacity={0} // Start hidden
@@ -1222,20 +1204,20 @@ const ProjectCard = memo(forwardRef(({ index, project, clothespinTexture, curren
                         position={[0, 0.28, 0.01]} // Względem środka detailsGroupRef, wyżej
                         fontSize={0.10}
                         color="#1c1c1c"
-                        font="/fonts/CabinSketch-Bold.ttf"
+                        font="/fonts/Kalam-Bold.ttf"
                         anchorX="center"
                         anchorY="middle"
                         fillOpacity={0} // Start hidden
                     >
-                        PROJECT DETAILS:
+                        WHAT I BUILT
                     </Text>
 
                     <Text
                         ref={detailsTextRef2}
                         position={[0, 0.2, 0.01]} // Poniżej nagłówka
-                        fontSize={0.06}
+                        fontSize={0.066}
                         color="#3d3226"
-                        font="/fonts/CabinSketch-Bold.ttf"
+                        font="/fonts/Kalam-Bold.ttf"
                         anchorX="center"
                         anchorY="top"
                         maxWidth={1.1} // Maksymalna szerokość zanim zacznie łamać linie
@@ -1258,7 +1240,7 @@ const ProjectCard = memo(forwardRef(({ index, project, clothespinTexture, curren
                         position={[0, 0.15, 0.01]}
                         fontSize={0.08}
                         color="#1c1c1c"
-                        font="/fonts/CabinSketch-Bold.ttf"
+                        font="/fonts/Kalam-Bold.ttf"
                         anchorX="center"
                         anchorY="middle"
                         fillOpacity={0} // Start hidden
@@ -1295,15 +1277,64 @@ const ProjectCard = memo(forwardRef(({ index, project, clothespinTexture, curren
                 */}
                 <Text
                     ref={textRef}
-                    position={[0, 0.7, 0]} // Tylko dwa pierwsze parametry [X, Y] mają tutaj znaczenie
-                    fontSize={0.20}
-                    color="#1c1c1c"
-                    font="/fonts/CabinSketch-Bold.ttf"
+                    position={[0, 0.5, 0]} // Tylko dwa pierwsze parametry [X, Y] mają tutaj znaczenie
+                    fontSize={0.16}
+                    maxWidth={1.3}
+                    textAlign="center"
+                    color="#2b2016"
+                    font="/fonts/PermanentMarker-Regular.ttf"
                     anchorX="center"
-                    anchorY="middle"
+                    anchorY="bottom"
                     fillOpacity={0} // Start hidden
                 >
                     {project.title}
+                </Text>
+
+                {project.tagline && (
+                    <Text
+                        ref={taglineTextRef}
+                        position={[0, 0.38, 0]}
+                        fontSize={0.075}
+                        maxWidth={1.2}
+                        lineHeight={1.25}
+                        textAlign="center"
+                        color="#3d3226"
+                        font="/fonts/Kalam-Regular.ttf"
+                        anchorX="center"
+                        anchorY="top"
+                        fillOpacity={0}
+                    >
+                        {project.year ? `${project.tagline} (${project.year})` : project.tagline}
+                    </Text>
+                )}
+
+                <Text
+                    ref={stackTextRef}
+                    position={[0, -0.05, 0]}
+                    fontSize={0.068}
+                    maxWidth={1.2}
+                    lineHeight={1.4}
+                    textAlign="center"
+                    color="#2b2016"
+                    font="/fonts/Kalam-Bold.ttf"
+                    anchorX="center"
+                    anchorY="top"
+                    fillOpacity={0}
+                >
+                    {(project.techStack || []).map((t) => t.label || t).join('  ·  ')}
+                </Text>
+
+                <Text
+                    ref={hintTextRef}
+                    position={[0, -0.82, 0]}
+                    fontSize={0.055}
+                    color="#6f6248"
+                    font="/fonts/Kalam-Regular.ttf"
+                    anchorX="center"
+                    anchorY="middle"
+                    fillOpacity={0}
+                >
+                    click to flip for details
                 </Text>
 
                 <PositionalAudio
@@ -1371,7 +1402,7 @@ const TechStackLogo = ({ tech, position }) => {
                 position={position}
                 fontSize={0.045}
                 color="#1c1c1c"
-                font="/fonts/CabinSketch-Bold.ttf"
+                font="/fonts/Kalam-Bold.ttf"
                 anchorX="center"
                 anchorY="middle"
                 maxWidth={0.28}

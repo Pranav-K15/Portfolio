@@ -42,7 +42,6 @@ export const CORRIDOR_TEXTURES = [
     '/textures/corridor/texturadoprogow.webp',
     '/textures/corridor/texturadrewnadonozekbiurka.webp',
     '/textures/corridor/ceiling_texture.webp',
-    '/textures/corridor/avatar_sketch.webp',
     // Double doors (end of corridor)
     '/textures/corridor/doors/frame_sketch.webp',
     '/textures/corridor/doors/doorrleft.webp',
@@ -84,8 +83,6 @@ export const CORRIDOR_TEXTURES = [
     '/textures/corridor/gorastolika.webp',
     '/textures/corridor/szafkaprzod.webp',
     '/textures/corridor/szafkaprzodgora.webp',
-    '/textures/corridor/rysuneknaobraz1.webp',
-    '/textures/corridor/rysuneknaobrazek3.webp',
     // DoorSection extras
     '/textures/corridor/strzalka.webp',
     '/textures/corridor/doors/door_back.webp',
@@ -94,8 +91,6 @@ export const CORRIDOR_TEXTURES = [
 
 // Standard HTML Image assets (preloaded via new Image() in App.jsx)
 export const IMAGE_ASSETS = [
-    '/images/avatar-thinking.webp',
-    '/images/avatar-hero.webp',
     '/images/ink-splash.webp',
     '/images/map.webp',
     '/images/map_about_painted.webp',

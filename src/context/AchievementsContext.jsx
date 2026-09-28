@@ -5,12 +5,12 @@ import posthog from 'posthog-js';
 const AchievementsContext = createContext();
 
 export const ACHIEVEMENTS = {
-    corridor_enter: { id: 'corridor_enter', label: 'Click a door to enter', title: 'Explorer' },
-    corridor_explore: { id: 'corridor_explore', label: 'Scroll to explore the corridor', title: 'Wanderer' },
-    about_fly: { id: 'about_fly', label: 'Scroll to fly through my story', title: 'Sky Walker' },
-    studio_interact: { id: 'studio_interact', label: 'Drag to rotate and browse', title: 'Director' },
-    gallery_inspect: { id: 'gallery_inspect', label: 'Click project to inspect', title: 'Art Critic' },
-    contact_choose: { id: 'contact_choose', label: 'Find a contact method', title: 'Sociable' }
+    corridor_enter: { id: 'corridor_enter', label: 'Open any door to step inside', title: 'First Commit' },
+    corridor_explore: { id: 'corridor_explore', label: 'Scroll to walk down the hallway', title: 'Hello, World' },
+    about_fly: { id: 'about_fly', label: 'Scroll to read my story', title: 'Deep Dive' },
+    studio_interact: { id: 'studio_interact', label: 'Drag to spin the skills tower', title: 'Full Stack' },
+    gallery_inspect: { id: 'gallery_inspect', label: 'Click a card to flip it over', title: 'Code Reviewer' },
+    contact_choose: { id: 'contact_choose', label: 'Pick a way to reach me', title: 'Connected' }
 };
 
 export const AchievementsProvider = ({ children }) => {
@@ -125,7 +125,7 @@ export const AchievementsProvider = ({ children }) => {
 
             // Send event to PostHog
             const achievementData = ACHIEVEMENTS[id];
-            if (achievementData) {
+            if (achievementData && posthog.__loaded) {
                 posthog.capture('achievement_unlocked', {
                     achievement_id: id,
                     achievement_title: achievementData.title,

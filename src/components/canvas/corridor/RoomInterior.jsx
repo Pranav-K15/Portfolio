@@ -20,9 +20,9 @@ const ROOM_CONFIG = {
 };
 
 const SUBTITLES = {
-    'THE GALLERY': 'Explore my creative projects',
-    'THE STUDIO': 'Watch behind the scenes',
-    'DEV DIARY': 'My development journey',
+    'THE GALLERY': 'Projects I have built',
+    'THE STUDIO': 'My technical skills',
+    'THE ABOUT': 'Education and achievements',
     "LET'S CONNECT": 'Get in touch with me'
 };
 

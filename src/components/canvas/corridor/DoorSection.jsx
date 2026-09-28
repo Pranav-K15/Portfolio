@@ -47,6 +47,14 @@ const DOOR_TEXTURES = {
     "LET'S CONNECT": '/textures/corridor/doors/drzwikontakt.webp',
 };
 
+// Text shown on the sign above each door (keys are the internal door labels)
+const SIGN_TEXT = {
+    'THE GALLERY': 'PROJECTS',
+    'THE STUDIO': 'SKILLS',
+    'THE ABOUT': 'ABOUT ME',
+    "LET'S CONNECT": 'CONTACT',
+};
+
 // Painted (colored) variants for brush-stroke reveal on hover
 const DOOR_PAINTED_TEXTURES = {
     'THE GALLERY': '/textures/corridor/doors/drzwiprojekty_painted.webp',
@@ -1069,76 +1077,18 @@ const DoorSection = ({
                         </mesh>
 
                         {/* === DYNAMIC TEXT FOR SIGNS === */}
-                        {label === 'THE GALLERY' && (
-                            <group position={[0, 0, 0.01]}>
-                                <Text
-                                    font="/fonts/CabinSketch-Bold.ttf"
-                                    fontSize={0.25}
-                                    color="#111111"
-                                    anchorX="center"
-                                    anchorY="bottom"
-                                    position={[0, -0.02, 0]}
-                                >
-                                    THE
-                                </Text>
-                                <Text
-                                    font="/fonts/CabinSketch-Bold.ttf"
-                                    fontSize={0.25}
-                                    color="#111111"
-                                    anchorX="center"
-                                    anchorY="top"
-                                    position={[0, +0.02, 0]}
-                                >
-                                    GALLERY
-                                </Text>
-                            </group>
-                        )}
-                        {label === 'THE STUDIO' && (
-                            <group position={[0, 0, 0.01]}>
-                                <Text
-                                    font="/fonts/CabinSketch-Bold.ttf"
-                                    fontSize={0.25}
-                                    color="#111111"
-                                    anchorX="center"
-                                    anchorY="bottom"
-                                    position={[0, -0.02, 0]}
-                                >
-                                    THE
-                                </Text>
-                                <Text
-                                    font="/fonts/CabinSketch-Bold.ttf"
-                                    fontSize={0.25}
-                                    color="#111111"
-                                    anchorX="center"
-                                    anchorY="top"
-                                    position={[0, +0.03, 0]}
-                                >
-                                    STUDIO
-                                </Text>
-                            </group>
-                        )}
-                        {label === 'THE ABOUT' && (
+                        {SIGN_TEXT[label] && (
                             <Text
-                                font="/fonts/CabinSketch-Bold.ttf"
-                                fontSize={0.30}
-                                color="#111111"
+                                font="/fonts/PermanentMarker-Regular.ttf"
+                                fontSize={0.2}
+                                maxWidth={1.1}
+                                color="#2b2016"
                                 anchorX="center"
                                 anchorY="middle"
-                                position={[0, 0, 0.01]}
+                                position={[0, -0.02, 0.01]}
+                                rotation={[0, 0, -0.03]}
                             >
-                                ABOUT
-                            </Text>
-                        )}
-                        {label === "LET'S CONNECT" && (
-                            <Text
-                                font="/fonts/CabinSketch-Bold.ttf"
-                                fontSize={0.25}
-                                color="#111111"
-                                anchorX="center"
-                                anchorY="middle"
-                                position={[0, 0, 0.01]}
-                            >
-                                CONTACT
+                                {SIGN_TEXT[label]}
                             </Text>
                         )}
                     </group>
